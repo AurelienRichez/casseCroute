@@ -1,0 +1,37 @@
+<?php
+
+namespace modele;
+	
+	include_once('Produit.class.php');
+
+
+	interface Panier{
+		
+		/**
+		* retourne un tableau de produits
+		*/		
+		public function getProducts();
+		
+		/**
+		* Retourne le nombre de produit dans le panier
+		*/		
+
+		public function getNumberOfProducts();
+
+		/**
+		* Ajoute un produit
+		*/		
+		public function addProduct(Produit $p);
+
+		/**
+		* Valide la commande
+		*/
+		public function validateOrder();
+		
+		/**
+		* supprime un produit
+		*/		
+		public function deleteProduct(Produit $p);
+		
+	}
+
