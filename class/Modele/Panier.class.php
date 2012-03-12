@@ -22,6 +22,13 @@ namespace modele;
 		* Ajoute un produit
 		*/		
 		public function addProduct(Produit $p);
+		
+		
+		
+		/**
+		 * selectionne la date
+		 */
+		public function setDate($date);
 
 		/**
 		* Valide la commande

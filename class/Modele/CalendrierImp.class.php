@@ -72,5 +72,9 @@ class CalendrierImp implements Calendrier{
 			throw new Exception('La date entrée n\'est pas valide');
 		}
 	}
+	
+	public function nextValidDay() {
+		//TODO à implémenter
+	}
 
 }

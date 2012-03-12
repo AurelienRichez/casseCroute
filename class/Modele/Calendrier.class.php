@@ -35,7 +35,7 @@ interface Calendrier{
 	
 	
 	/**
-	 *  autorise les commandes pour le jour passé en param�tres
+	 *  autorise les commandes pour le jour passé en paramètres
 	 * 
 	 * @param $day  la date au format YYYY-MM-DD 
 	 */
@@ -44,11 +44,17 @@ interface Calendrier{
 	
 	
 	/**
-	 * autorise les commandes sur une période donn�e
+	 * autorise les commandes sur une période donnée
 	 * 
 	 * @param $start début de la période au format YYYY-MM-DD 
 	 * @param $end fin de la période au format YYYY-MM-DD 
 	 */
 	public function enablePeriod($start,$end);
+	
+	
+	/**
+	 * retourne le prochain jour valide
+	 */
+	public function nextValidDay();
 }
 
