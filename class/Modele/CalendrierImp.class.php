@@ -21,7 +21,7 @@ class CalendrierImp implements Calendrier{
 
 		//Cette fonction va d'abord vérifier que le jour choisi n'est pas un week end
 		//puis va ensuite chercher dans la bas de donnée si cette date existe dans la table
-		//(=pas de sandwiches ce jour là)
+		//(=sandwiches ce jour là)
 		$this->checkDateFormat($date);
 		
 		if(date('N',strtotime($date))>=6){
@@ -30,16 +30,18 @@ class CalendrierImp implements Calendrier{
 		else{
 			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.self::NAME_DB.' WHERE day='.$date);
 			$result = $result->fetchAll();
-			return $result[0]['nb']!=1;
+			return $result[0]['nb']==1;
 				
 		}
 	}
 
-	public function disableDay($date){
+	public function enableDay($date){
 
-
-		$this->checkDateFormat($date);
-		$this->db->exec('INSERT IGNORE INTO `'.self::NAME_DB.'` VALUES("'.$date.'")');
+		if(date('N',strtotime($date))<6){
+			$this->checkDateFormat($date);
+			$this->db->exec('INSERT IGNORE INTO `'.self::NAME_DB.'` VALUES("'.$date.'")');
+		}
+		
 	}
 
 	public function disablePeriod($start,$end){
@@ -51,7 +53,7 @@ class CalendrierImp implements Calendrier{
 		}
 	}
 
-	public function enableDay($date){
+	public function disableDay($date){
 
 		$this->checkDateFormat($date);
 
@@ -68,13 +70,25 @@ class CalendrierImp implements Calendrier{
 	}
 
 	private function checkDateFormat($date){
-		if(!preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $date)){
+		
+		$valeurs = split('-',$date);
+		
+		if(count($valeurs)==3 && checkdate($valeurs[1], $valeurs[2], $valeurs[0])){
 			throw new Exception('La date entrée n\'est pas valide');
 		}
 	}
 	
-	public function nextValidDay() {
+	public function nextValidDay($date=NULL) {
 		//TODO à implémenter
+		if($date==NULL)
+			$date = date('Y-m-d',time());
+		$this->checkDateFormat($date);
+		
+		
+		$timestamp  = strtotime($date);
+		//TODO 
 	}
+		
+	
 
 }
