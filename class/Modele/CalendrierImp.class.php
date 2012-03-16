@@ -30,9 +30,8 @@ class CalendrierImp implements Calendrier{
 			return false;
 		}
 		else{
-			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.self::NAME_DB.' WHERE day='.$date) or die(print_r($this->db->errorInfo()));
+			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.self::NAME_DB.' WHERE day="'.$date.'"');
 			$result = $result->fetchAll();
-			echo $result[0]['nb'];
 			return $result[0]['nb']==1;
 				
 		}
@@ -98,13 +97,14 @@ class CalendrierImp implements Calendrier{
 			
 		$timestamp  = strtotime($date);
 		
-		$result = $db->query('SELECT * FROM '.self::NAME_DB.' WHERE day >= '.$date.' LIMIT 0,1');
+		
+		$result = $this->db->query('SELECT * FROM '.self::NAME_DB.' WHERE day >= "'.$date.'"');
 		$result = $result->fetchAll();
-		if (count($result==0)) {
+		if (count($result)==0) {
 			throw new Exception('La date entrée est en dehors des prévisions');
 		}
 		else {
-			return $result[0];
+			return $result[0]['day'];
 		}
 	}
 		

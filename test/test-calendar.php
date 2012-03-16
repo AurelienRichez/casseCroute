@@ -28,6 +28,8 @@ try{
 	else {
 		echo '<br /> attendu : false, trouvé : false';
 	}
+	
+	echo '<br />'.$calendrier->nextValidDay();
 }
 catch (Exception $e) {
 	echo $e->getMessage();
