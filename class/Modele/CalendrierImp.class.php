@@ -4,13 +4,14 @@ require_once 'Calendrier.class.php';
 include_once 'Constants.php';
 
 use PDO;
+use \Exception;
 
 //TODO tester le calendrier
 
 class CalendrierImp implements Calendrier{
 
 	private $db;
-	const NAME_DB = 'calendrier';
+	const NAME_DB = 'calendar';
 
 
 	public function __construct(PDO $db){
@@ -29,8 +30,9 @@ class CalendrierImp implements Calendrier{
 			return false;
 		}
 		else{
-			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.self::NAME_DB.' WHERE day='.$date);
+			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.self::NAME_DB.' WHERE day='.$date) or die(print_r($this->db->errorInfo()));
 			$result = $result->fetchAll();
+			echo $result[0]['nb'];
 			return $result[0]['nb']==1;
 				
 		}
@@ -72,10 +74,10 @@ class CalendrierImp implements Calendrier{
 
 	private function checkDateFormat($date){
 		
-		$valeurs = split('-',$date);
+		$valeurs = explode('-',$date);
 		
-		if(count($valeurs)==3 && checkdate($valeurs[1], $valeurs[2], $valeurs[0])){
-			throw new Exception('La date entrée n\'est pas valide');
+		if(!(count($valeurs)==3 && checkdate($valeurs[1], $valeurs[2], $valeurs[0]))){
+			throw new Exception('La date entrée n\'est pas valide : '.$date);
 		}
 	}
 	
