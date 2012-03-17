@@ -14,32 +14,62 @@ html,body {
 	height: 100%;
 }
 
+
+
+
 body {
 	background:rgb(91,152,175);
 }
 
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/*--------------------------------[main_container]--------------------------------*/
+
 #main_container {
 	width:90%;
 	margin: 0 auto 0 auto ;
-	min-height: 100%;
+	min-height: 86%;
 	background-color:white;
 	max-width: 900px;
 }
 
-/*---------------------------------------------------------------*/
+@media screen and (max-width:500px) {
+	#main_container {
+		width: 100%
+	}
+}
+
+/*--------------------------------[banner]--------------------------------*/
 
 #banner {
 	margin-top:0px;
 	background:url("images/backgroundbanner.png") repeat-x;
 	height:110px;
+	padding-top:5px;
 }
 
 #banner h1 {
 	display:none;
 }
 
+#banner img {
+	max-height: 76%
+}
 
-/*---------------------------------------------------------------*/
+
+@media screen and (max-width:500px) {
+	#banner {
+		background:url("images/backgroundbannersmall.png") repeat-x;
+		height:50px;
+		padding-top:1px;
+	}
+}
+	
+
+/*--------------------------------[]--------------------------------*/
 
 
 #connected {
@@ -48,7 +78,7 @@ body {
 }
 
 
-/*---------------------------------------------------------------*/
+/*--------------------------------[]--------------------------------*/
 
 nav {
 	width:75%;
@@ -134,5 +164,26 @@ aside p {
 /*---------------------------------------------------------------*/
 
 footer {
+	border-top:solid 1px black;
 	text-align: center;
+	width:90%;
+	margin: 0 auto 0 auto ;
+	background-color:white;
+	max-width: 900px;
+	min-height: 14%;
 }
+footer p {
+	margin:0px;
+}
+
+footer p:first-child{
+	padding-top:2%;
+}
+
+@media screen and (max-width:500px) {
+	footer {
+		width: 100%
+	}
+}
+
+
