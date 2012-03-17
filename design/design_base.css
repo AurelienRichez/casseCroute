@@ -49,8 +49,10 @@ body {
 nav {
 	text-align: center;
 }
-nav ul {
+nav ul{
 	list-style-type:none;
+	padding-left:4%;
+	padding-right:4%;
 }
 
 /*---------------------------------------------------------------*/
