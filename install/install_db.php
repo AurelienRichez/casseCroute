@@ -1,6 +1,6 @@
 <?php
 //fichier instalant la base de donnée
-try {
+try {//TODO fichier à modifier par le suite
 	$db = new PDO('mysql:host=localhost;dbname=test-casse-croute', 'root', '');
 }
 catch(PDOException $e) {

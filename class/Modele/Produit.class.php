@@ -20,7 +20,7 @@ namespace modele;
 		public function getPrice();
 		
 		/**
-		*retourne l'adresse absolue de l'image du produit
+		*retourne l'adresse absolue de l'image du produit si elle existe
 		*/
 		public function getImage();
 
@@ -32,7 +32,7 @@ namespace modele;
 		/**
 		* egalite
 		*/	
-		public function equals();	
+		public function equals(Produit  $p);	
 
 	}
 	
