@@ -48,7 +48,7 @@ namespace modele;
 		* Valide la commande
 		*/
 		public function validateOrder() {
-			
+			//TODO à faire
 		}
 		
 		/**
