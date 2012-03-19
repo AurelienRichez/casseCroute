@@ -6,7 +6,6 @@ include_once 'Constants.php';
 use PDO;
 use \Exception;
 
-//TODO tester le calendrier
 
 class CalendrierImp implements Calendrier{
 
@@ -81,7 +80,6 @@ class CalendrierImp implements Calendrier{
 	}
 	
 	public function nextValidDay($date=NULL) {
-		//TODO à vérifier
 		
 		//paramètres par défauts :
 		if($date==NULL)

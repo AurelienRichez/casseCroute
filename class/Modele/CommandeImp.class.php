@@ -5,7 +5,7 @@ require_once 'Commande.class.php';
 use PDO;
 use Exception;
 
-//TODO tester le calendrier
+
 
 class CommandeImp implements Commande{
 
