@@ -4,6 +4,7 @@
 	
 	require_once 'PanierImp.class.php';
 	require_once 'CalendrierImp.class.php';
+	require_once 'CommandeImp.class.php';
 	require_once 'Constants.php';
 	
 	class UserImp implements User {
@@ -40,8 +41,15 @@
 			//TODO envisager de créer une fonction forceMaj() pour mettre à jour les 
 			//informations au besoin (à appeler après l'ajout ou la suppression d'une commande)
 			if($this->orders == NULL){
-				//TODO création des commandes
-				$req = $this->db->prepare('SELECT * FROM '.NAME_DB_COMMANDE.' WHERE id_user=:id_user AND ');
+				$this->orders=array();
+				
+				$req = $this->db->prepare('SELECT id_order FROM '.NAME_DB_COMMANDE.' WHERE id_user=? AND day>='.$this->calendar->nextValidDay());
+				$req->execute(array($this->id_user));
+				$result = $req->fetchAll();
+				
+				for($i=0;$i<count($result);$i++) {
+					$this->orders[$i] = new CommandeImp($this->db, $result[$i]['id_order']);
+				}
 			}
 			
 			return $this->orders;
@@ -91,6 +99,7 @@
 		 */
 		public function validateOrder(){
 			$this->basket->validateOrder();
+			//TODO forcer la mise a jour de l'objet ici
 		}
 	}
 	
