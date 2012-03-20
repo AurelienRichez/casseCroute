@@ -40,5 +40,9 @@ namespace modele;
 		*/		
 		public function deleteProduct(Produit $p);
 		
+		/**
+		 * vide le panier
+		 */
+		public function deleteAll();
 	}
 

@@ -48,10 +48,11 @@ namespace modele;
 		}
 
 		/**
-		* Valide la commande
+		* Valide la commande et vide le panier
 		*/
 		public function validateOrder() {
 			//TODO à faire
+			
 		}
 		
 		/**
@@ -65,5 +66,11 @@ namespace modele;
 			}
 		}
 		
+		/**
+		 * vide le panier
+		 */
+		public function deleteAll() {
+			$this->produits = array();
+		}
 	}
 
