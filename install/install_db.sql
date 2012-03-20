@@ -1,10 +1,10 @@
 CREATE TABLE calendar (
 	day DATE,
 	PRIMARY KEY(day)
-);
+)ENGINE = InnoDB;
 
 CREATE TABLE orders (
-	id_order INT ,
+	id_order INT AUTO_INCREMENT,
 	id_user CHAR(30),
 	name_user CHAR(30),
 	surname_user CHAR(30),
@@ -13,7 +13,7 @@ CREATE TABLE orders (
 	FOREIGN KEY(day)
 		REFERENCES calendar(day)
 		ON DELETE RESTRICT
-);
+)ENGINE = InnoDB;
 
 CREATE TABLE ordered_products(
 	id_order INT,
@@ -26,4 +26,4 @@ CREATE TABLE ordered_products(
 	FOREIGN KEY(id_product)
 		REFERENCES articles(code)
 		ON DELETE CASCADE
-);
+)ENGINE = InnoDB;
