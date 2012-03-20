@@ -21,7 +21,7 @@ namespace modele;
 		/**
 		* Ajoute un produit
 		*/		
-		public function addProduct(Produit $p);
+		public function addProduct(Produit $p, $nb = 1);
 		
 		
 		

@@ -41,7 +41,9 @@ namespace modele;
 		/**
 		* Ajoute un produit
 		*/		
-		public function addProduct(Produit $p){
+		public function addProduct(Produit $p, $nb = 1){
+			//TODO à réécrire, mieux vaut avoir un tableau à deux entrée contenant le produit et le nombre
+			// ça évitera de multiplier les objets produits
 			$this->produits[count($this->produits)]=$p;
 		}
 
