@@ -2,10 +2,11 @@
 
 namespace modele;
 	
+	require_once 'Panier.class.php';
 	include_once('Produit.class.php');
 
 
-	interface Panier{
+	class PanierImp implements Panier{
 		
 		
 		private $produits;
