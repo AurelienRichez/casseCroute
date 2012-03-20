@@ -33,7 +33,7 @@ namespace modele;
 		/**
 		* Valide la commande
 		*/
-		public function validateOrder();
+		public function validateOrder($name, $surname, $id_user);
 		
 		/**
 		* supprime un produit

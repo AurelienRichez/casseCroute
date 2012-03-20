@@ -3,10 +3,11 @@
 namespace modele;
 	
 	require_once 'Panier.class.php';
+	require_once 'Constants.php';
 	include_once('Produit.class.php');
 
 
-	class PanierImp implements Panier{
+	class PanierImp implements Panier{//TODO classe à tester
 		
 		
 		private $produits;
@@ -53,9 +54,10 @@ namespace modele;
 		/**
 		* Valide la commande et vide le panier
 		*/
-		public function validateOrder() {
-			//TODO à faire
-			
+		public function validateOrder($name, $surname, $id_user) {
+			$req = $this->db->exec('INSERT INTO '.NAME_DB_COMMANDE.'(id_user,name_user, surname_user,day) VALUES('.$id_user.','.$name.','.$surname.',"'.$this->date.'")');
+		
+			//TODO fonction à finir
 		}
 		
 		/**
