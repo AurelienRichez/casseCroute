@@ -7,14 +7,14 @@ require_once 'Produit.class.php';
 interface User {
 	
 	/**
-	 * retourne un tableau de commandes représetnant les futures commandes de la personne
+	 * retourne un tableau de commandes reprÃ©sentant les futures commandes de la personne
 	 */
 	
 	public function getOrders();
 	
 	/**
-	 * retourne la dernière commande faites par l'utilisateur ou null si aucune commande 
-	 * n'a est enregistré
+	 * retourne la derniÃ¨re commande faites par l'utilisateur ou null si aucune commande 
+	 * n'a est enregistrÃ©
 	 */
 	public function getLastOrder();
 	
@@ -33,7 +33,7 @@ interface User {
 	
 	
 	/**
-	 * enlève 1 du type produit de la liste
+	 * enlÃ¨ve 1 du type produit de la liste
 	 * @param Produit $product
 	 */
 	public function removeProduct(Produit $product);
