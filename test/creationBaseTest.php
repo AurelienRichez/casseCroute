@@ -2,7 +2,7 @@
 
 
 /**
- * crée une base de donnée sqlite pour les tests et la retourne
+ * crï¿½e une base de donnï¿½e sqlite pour les tests et la retourne
  */
 function creer() {
 	try {
@@ -19,8 +19,8 @@ function creer() {
   `tva` decimal(10,0) NOT NULL,
   `prix` decimal(10,0) NOT NULL,
   PRIMARY KEY  (`code`)
-	);
-			INSERT INTO `articles` (`code`, `libelleTicket`, `tva`, `prix`) VALUES
+	)');
+	$db->query('INSERT INTO `articles` (`code`, `libelleTicket`, `tva`, `prix`) VALUES
 (10, "cafe", 7, 2);');
 	
 	
@@ -54,12 +54,13 @@ $db->query("CREATE TABLE ordered_products(
 		ON DELETE CASCADE
 )")or die(print_r($db->errorInfo()));
 	
-	//TODO remplir la base
-	
+
+	// remplissage de la base
 	$db->exec("INSERT INTO calendar VALUES('2012-05-03')") or die(print_r($db->errorInfo()));
-	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("ariche10","Richez","Aurélien","2012-05-03")') or die(print_r($db->errorInfo()));
+	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("ariche10","Richez","Aurï¿½lien","2012-05-03")') or die(print_r($db->errorInfo()));
 	$id = $db->lastInsertId();
 	$db->exec('INSERT INTO ordered_products(id_order,id_product,nb_product) VALUES('.$id.',10,2)') or die(print_r($db->errorInfo()));
+	//fin du remplissage
 	
 	
 	return $db;

@@ -1,5 +1,5 @@
 <?php
-//TODO à réécrire pour intégrer la base sqlite
+//TODO Ã  rÃ©Ã©crire pour intÃ©grer la base sqlite
 require_once '../class/Modele/CalendrierImp.class.php';
 use modele\CalendrierImp;
 

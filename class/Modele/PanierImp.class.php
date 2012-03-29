@@ -1,7 +1,8 @@
 <?php
 
 namespace modele;
-	
+use PDO;	
+
 	require_once 'Panier.class.php';
 	require_once 'Constants.php';
 	include_once('Produit.class.php');
