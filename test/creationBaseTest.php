@@ -2,7 +2,9 @@
 
 
 /**
- * cr�e une base de donn�e sqlite pour les tests et la retourne
+ * crée une base de donnée sqlite pour les tests et la retourne
+ * attention les requpetes utilisées ici peuvent être légèrement différente 
+ * selon la syntaxe sqlite ou mysql
  */
 function creer() {
 	try {
@@ -30,16 +32,15 @@ function creer() {
 )");
 
 $db->query("CREATE TABLE orders (
-	id_order INT AUTO_INCREMENT,
+	id_order INTEGER PRIMARY KEY,
 	id_user CHAR(30),
 	name_user CHAR(30),
 	surname_user CHAR(30),
 	day date,
-	PRIMARY KEY(id_order),
 	FOREIGN KEY(day)
 		REFERENCES calendar(day)
 		ON DELETE RESTRICT
-)");
+)") or die(print_r($db->errorInfo()));
 
 $db->query("CREATE TABLE ordered_products(
 	id_order INT,
