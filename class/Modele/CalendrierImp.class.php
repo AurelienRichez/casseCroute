@@ -40,7 +40,7 @@ class CalendrierImp implements Calendrier{
 
 		if(date('N',strtotime($date))<6){
 			$this->checkDateFormat($date);
-			$this->db->exec('INSERT IGNORE INTO `'.self::NAME_DB.'` VALUES("'.$date.'")');
+			$this->db->exec('INSERT INTO `'.self::NAME_DB.'` VALUES("'.$date.'")');
 		}
 		
 	}
