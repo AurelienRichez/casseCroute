@@ -56,13 +56,14 @@ $db->query("CREATE TABLE ordered_products(
 )")or die(print_r($db->errorInfo()));
 	
 
-	// remplissage de la base
+	
+	return $db;
+}
+
+
+function remplirBaseTest($db) {
 	$db->exec("INSERT INTO calendar VALUES('2012-05-03')") or die(print_r($db->errorInfo()));
 	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("ariche10","Richez","Aur�lien","2012-05-03")') or die(print_r($db->errorInfo()));
 	$id = $db->lastInsertId();
 	$db->exec('INSERT INTO ordered_products(id_order,id_product,nb_product) VALUES('.$id.',10,2)') or die(print_r($db->errorInfo()));
-	//fin du remplissage
-	
-	
-	return $db;
 }

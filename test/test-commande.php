@@ -6,7 +6,7 @@ require_once '../class/Modele/CommandeImp.class.php';
 use modele\CommandeImp;
 
 $db = creer();
-
+remplirBaseTest($db);
 
 $commandeTest = new CommandeImp($db, 1);//première commande créée
 

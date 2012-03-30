@@ -64,7 +64,9 @@ use PDO;
 		/**
 		* supprime un produit
 		*/		
-		public function deleteProduct(Produit $p);
+		public function deleteProduct(Produit $p){
+			//TODO à coder
+		}
 		
 		private function checkDateFormat($date){
 			if(!preg_match("#[0-9]{4}-[0-9]{2}-[0-9]{2}#", $date)){

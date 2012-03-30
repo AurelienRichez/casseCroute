@@ -10,7 +10,7 @@ require_once '../class/Modele/ProduitImp.class.php';
 
 
 $db = creer();
-
+remplirBaseTest($db);
 
 $produitTest = new ProduitImp($db, 10);//10 est l'id du produit ajouté par défaut au début
 
