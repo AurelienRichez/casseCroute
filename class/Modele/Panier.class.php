@@ -22,13 +22,16 @@ namespace modele;
 		* Ajoute un produit
 		*/		
 		public function addProduct(Produit $p, $nb = 1);
-		
-		
-		
+
 		/**
 		 * selectionne la date
 		 */
 		public function setDate($date);
+		
+		/**
+		 * retourne la date au format YYYY-MM-DD
+		 */
+		public function getDate();
 
 		/**
 		* Valide la commande
@@ -38,7 +41,7 @@ namespace modele;
 		/**
 		* supprime un produit
 		*/		
-		public function deleteProduct(Produit $p);
+		public function deleteProduct(Produit $p, $nb = 1);
 		
 		/**
 		 * vide le panier
