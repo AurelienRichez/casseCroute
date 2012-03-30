@@ -1,20 +1,18 @@
 <?php
-//TODO à réécrire pour intégrer la base sqlite
+//TODO à revérifier, les tests donnent de mauvais résultats
 require_once '../class/Modele/CalendrierImp.class.php';
 use modele\CalendrierImp;
 
-try {
-	$db = new PDO('mysql:host=localhost;dbname=test-casse-croute', 'root', '');
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
+require_once 'creationBaseTest.php';
+
+$db = creer();
 
 $calendrier = new CalendrierImp($db);
 
 try{
 	
 	$calendrier->enablePeriod('2012-04-25', '2012-05-11');
+	$calendrier->enablePeriod('2012-03-25', '2012-04-27');
 	$calendrier->disablePeriod('2012-04-01','2012-05-03');
 	if($calendrier->validDay('2012-05-04')) {
 		echo 'attendu : true, trouvé : true';
