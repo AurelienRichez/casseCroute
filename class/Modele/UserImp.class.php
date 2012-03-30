@@ -51,9 +51,13 @@ class UserImp implements User {
 		return $this->orders;
 	}
 
-	public function getLastOrder(){//TODO a implémenter
+	public function getLastOrder(){
 		if($this->lastOrder == NULL) {
-			//TODO création de la dernière commande
+			$req = $this->db->prepare('SELECT id_order FROM '.NAME_DB_COMMANDE.' WHERE id_user=? ORDER BY id_order DESC LIMIT 0,1');
+			$req->execute(array($this->id_user));
+			$result = $req->fetchAll();
+			
+			$this->lastOrder = new CommandeImp($this->db, $result[0]['id_order']);
 		}
 			
 		return $this->lastOrder;
