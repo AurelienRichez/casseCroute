@@ -29,7 +29,7 @@ class CalendrierImp implements Calendrier{
 			return false;
 		}
 		else{
-			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.self::NAME_DB.' WHERE day="'.$date.'"');
+			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.self::NAME_DB.' WHERE day="'.$date.'"') or die(print_r($this->db->errorInfo()));
 			$result = $result->fetchAll();
 			return $result[0]['nb']==1;
 				
