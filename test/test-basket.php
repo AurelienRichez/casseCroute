@@ -49,8 +49,26 @@ echo 'après retrait avec deleteAll : ';
 $panierTest->deleteAll();
 print_r($panierTest->getProducts());
 
+$panierTest->addProduct($produit);
+$panierTest->validateOrder('Lorem', 'Ipsum', 'latin');
 
-$panierTest->validateOrder('Aurélien', 'Richez', 'ariche10');
+//vérification de l'état de la base de donnée
+$req = $db->query('SELECT * FROM orders');
+echo '<br /><br />';
+print_r($req->fetchAll());
 
-//TODO vérifier l'état de la base de donnée
-//TODO déclencher des erreurs de mauvaise date
+$req = $db->query('SELECT * FROM ordered_products');
+echo '<br /><br />';
+print_r($req->fetchAll());
+
+//test pour mettre une date non valide
+$panierTest->setDate('2012-02-02');
+$panierTest->addProduct($produit);
+$panierTest->validateOrder('Titi', 'Fii', 'fifi10');
+
+//vérification de l'état de la base de donnée
+$req = $db->query('SELECT * FROM orders');
+echo '<br /><br />';
+print_r($req->fetchAll());
+
+//TODO tester les fonctions de date

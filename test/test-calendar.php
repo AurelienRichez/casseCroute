@@ -1,5 +1,4 @@
 <?php
-//TODO à revérifier, les tests donnent de mauvais résultats
 require_once '../class/Modele/CalendrierImp.class.php';
 use modele\CalendrierImp;
 

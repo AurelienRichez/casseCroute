@@ -8,7 +8,7 @@ use PDO;
 	include_once('Produit.class.php');
 
 
-	class PanierImp implements Panier{//TODO classe à tester
+	class PanierImp implements Panier{
 		
 		
 		private $produits;
@@ -34,7 +34,7 @@ use PDO;
 		}
 		
 		public function setDate($date) {
-			if($this->calendrier->validDay($date));
+			if($this->calendrier->validDay($date))
 				$this->date = $date;
 		}
 
@@ -52,7 +52,11 @@ use PDO;
 		}
 
 		public function validateOrder($name, $surname, $id_user) {
-			$req = $this->db->exec('INSERT INTO '.NAME_DB_COMMANDE.'(id_user,name_user, surname_user,day) VALUES('.$id_user.','.$name.','.$surname.',"'.$this->date.'")');
+			//Vérification pour éviter d'ajouter une commande vide dans la base
+			if (count($this->produits)==0)
+				throw new Exception('Le panier est vide !');
+				
+			$req = $this->db->exec('INSERT INTO '.NAME_DB_COMMANDE.'(id_user,name_user, surname_user,day) VALUES("'.$id_user.'","'.$name.'","'.$surname.'","'.$this->date.'")')or print_r($this->db->errorInfo());
 			$id = $this->db->lastInsertId();
 			foreach($this->produits as $p) {
 				$this->db->exec('INSERT INTO '.NAME_DB_PROD_COMM.'(id_order,id_product,nb_product) VALUES('.$id.','.$p['prod']->getId().','.$p['nb'].')');
