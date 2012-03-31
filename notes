@@ -4,3 +4,5 @@ Xin a été ajouté comme colaborateur
 Dayde a été ajouté comme colaborateur
 Le calendrier est maintenant opérationnel
 12-03 : NextValidDay à rajouter dans le calendrier
+21-03 : Attention, l'objet PDO ne peut pas être passé en variable de session
+		=> trouver une solution à ça
