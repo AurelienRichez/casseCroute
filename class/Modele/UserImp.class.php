@@ -2,10 +2,13 @@
 
 namespace modele;
 
+require_once 'User.class.php';
 require_once 'PanierImp.class.php';
 require_once 'CalendrierImp.class.php';
 require_once 'CommandeImp.class.php';
 require_once 'Constants.php';
+
+use \PDO;
 
 class UserImp implements User {
 
@@ -22,7 +25,7 @@ class UserImp implements User {
 
 
 	function __construct(PDO $db,$name,$surname,$id_user) {
-		$this->$db=$db;
+		$this->db=$db;
 			
 		$this->id_user = $id_user;
 		$this->name = $name;
