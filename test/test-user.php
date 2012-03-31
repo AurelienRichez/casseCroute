@@ -10,7 +10,7 @@ require_once '../class/Modele/ProduitImp.class.php';
 $db = creer();
 remplirBaseTest($db);
 
-try{//TODO à coder
+try{
 	
 
 $userTest = new UserImp($db, 'Toto', 'Foo', 'toto1');

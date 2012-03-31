@@ -71,4 +71,3 @@ $req = $db->query('SELECT * FROM orders');
 echo '<br /><br />';
 print_r($req->fetchAll());
 
-//TODO tester les fonctions de date
