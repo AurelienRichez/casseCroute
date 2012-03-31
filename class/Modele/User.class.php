@@ -26,20 +26,6 @@ interface User {
 	
 	
 	/**
-	 * ajoute un produit au panier de la personne
-	 * @param Produit $product
-	 */
-	public function addProduct(Produit $product);
-	
-	
-	/**
-	 * enlève 1 du type produit de la liste
-	 * @param Produit $product
-	 */
-	public function removeProduct(Produit $product);
-	
-	
-	/**
 	 * Valide la commande en cours et vide le panier
 	 */
 	public function validateOrder();

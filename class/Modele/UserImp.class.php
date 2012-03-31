@@ -42,7 +42,7 @@ class UserImp implements User {
 		if($this->orders == NULL){
 			$this->orders=array();
 
-			$req = $this->db->prepare('SELECT id_order FROM '.NAME_DB_COMMANDE.' WHERE id_user=? AND day>='.$this->calendar->nextValidDay());
+			$req = $this->db->prepare('SELECT id_order FROM '.NAME_DB_COMMANDE.' WHERE id_user=? AND day>="'.$this->calendar->nextValidDay().'"');
 			$req->execute(array($this->id_user));
 			$result = $req->fetchAll();
 
@@ -59,8 +59,8 @@ class UserImp implements User {
 			$req = $this->db->prepare('SELECT id_order FROM '.NAME_DB_COMMANDE.' WHERE id_user=? ORDER BY id_order DESC LIMIT 0,1');
 			$req->execute(array($this->id_user));
 			$result = $req->fetchAll();
-			
-			$this->lastOrder = new CommandeImp($this->db, $result[0]['id_order']);
+			if(count($result)>=1)
+				$this->lastOrder = new CommandeImp($this->db, $result[0]['id_order']);
 		}
 			
 		return $this->lastOrder;
@@ -68,14 +68,6 @@ class UserImp implements User {
 
 	public function getBasket(){
 		return $this->basket;
-	}
-
-	public function addProduct(Produit $product, $nb = 1){
-		$this->basket->addProduct($product);
-	}
-
-	public function removeProduct(Produit $product){
-		$this->basket->deleteProduct($product);
 	}
 
 	public function validateOrder(){
