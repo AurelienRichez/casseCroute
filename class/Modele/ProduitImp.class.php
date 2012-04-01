@@ -23,7 +23,7 @@ class ProduitImp implements Produit{
 			throw new Exception('mauvais identifiant de produit : '.$id);
 		}
 		$this->id=$id;
-		$req = $db->query('SELECT * FROM '.NAME_DB_PRODUIT.' WHERE code='.$id);
+		$req = $this->db->query('SELECT * FROM '.NAME_DB_PRODUIT.' WHERE code='.$id);
 		$result = $req->fetchAll();
 		$this->name = $result[0]['libelleTicket'];
 		$this->price = $result[0]['prix']*(1+$result[0]['tva']/100);

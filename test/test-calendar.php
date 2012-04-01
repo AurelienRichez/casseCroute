@@ -1,12 +1,16 @@
 <?php
-require_once '../class/Modele/CalendrierImp.class.php';
-use modele\CalendrierImp;
 
+use modele\CalendrierImp;
+use modele\DBFactorySqlite;
+
+require_once '../class/Modele/CalendrierImp.class.php';
 require_once 'creationBaseTest.php';
+require_once '../class/Modele/DBFactorySqlite.class.php';
+
 
 $db = creer();
 
-$calendrier = new CalendrierImp($db);
+$calendrier = new CalendrierImp(new DBFactorySqlite($db));
 
 try{
 	

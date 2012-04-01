@@ -25,16 +25,16 @@ class UserImp implements User {
 	private $orders = NULL;
 
 
-	function __construct(DBFactory $dbFAc,$name,$surname,$id_user) {
-		$this->dbFactory = $dbFAc;
-		$this->db= $dbFAc->getDataBase();
+	function __construct(DBFactory $dbFac,$name,$surname,$id_user) {
+		$this->dbFactory = $dbFac;
+		$this->db= $dbFac->getDataBase();
 			
 		$this->id_user = $id_user;
 		$this->name = $name;
 		$this->surname = $surname;
 			
-		$this->calendar = new CalendrierImp($db);
-		$this->basket = new PanierImp($db, $this->calendar);
+		$this->calendar = new CalendrierImp($dbFac);
+		$this->basket = new PanierImp($dbFac, $this->calendar);
 	}
 
 	public function getOrders(){
@@ -49,7 +49,7 @@ class UserImp implements User {
 			$result = $req->fetchAll();
 
 			for($i=0;$i<count($result);$i++) {
-				$this->orders[$i] = new CommandeImp($this->db, $result[$i]['id_order']);
+				$this->orders[$i] = new CommandeImp($this->dbFactory, $result[$i]['id_order']);
 			}
 		}
 			
@@ -62,7 +62,7 @@ class UserImp implements User {
 			$req->execute(array($this->id_user));
 			$result = $req->fetchAll();
 			if(count($result)>=1)
-				$this->lastOrder = new CommandeImp($this->db, $result[0]['id_order']);
+				$this->lastOrder = new CommandeImp($this->dbFactory, $result[0]['id_order']);
 		}
 			
 		return $this->lastOrder;

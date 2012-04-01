@@ -6,6 +6,8 @@
 
 namespace modele;
 
+use \PDO;
+
 require_once 'DBFactory.class.php';//TODO à continuer
 
 
@@ -28,7 +30,7 @@ class DBFactorySqlite implements DBFActory {
 	 * @return PDO base de donnée
 	 */
 	public function getDataBase(){
-		return $this->$db;
+		return $this->db;
 	}
 	
 	function __sleep() {

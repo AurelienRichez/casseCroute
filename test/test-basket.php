@@ -1,22 +1,28 @@
 <?php
+use modele\DBFactorySqlite;
+use modele\PanierImp;
+use modele\CalendrierImp;
+use modele\ProduitImp;
+
+
 require_once 'creationBaseTest.php';
 require_once '../class/Modele/PanierImp.class.php';
 require_once '../class/Modele/CalendrierImp.class.php';
 require_once '../class/Modele/ProduitImp.class.php';
+require_once '../class/Modele/DBFactorySqlite.class.php';
 
-use modele\PanierImp;
-use modele\CalendrierImp;
-use modele\ProduitImp;
 
 $db = creer();
 remplirBaseTest($db);
 // /!\ ATTENTION : ce test nécessite d'avoir un calendrier valide, un produit valide
 // 
 
-$panierTest = new PanierImp($db, new CalendrierImp($db));
+$dbFac = new DBFactorySqlite($db);
+$panierTest = new PanierImp($dbFac, new CalendrierImp($dbFac));
 
-$produit = new ProduitImp($db, 10);
+$produit = new ProduitImp($dbFac, 10);
 
+echo '<pre>';
 //vérification de la date
 echo 'date',$panierTest->getDate();
 
@@ -53,6 +59,7 @@ $panierTest->addProduct($produit);
 $panierTest->validateOrder('Lorem', 'Ipsum', 'latin');
 
 //vérification de l'état de la base de donnée
+echo 'etat de la base : <br />';
 $req = $db->query('SELECT * FROM orders');
 echo '<br /><br />';
 print_r($req->fetchAll());
@@ -70,4 +77,5 @@ $panierTest->validateOrder('Titi', 'Fii', 'fifi10');
 $req = $db->query('SELECT * FROM orders');
 echo '<br /><br />';
 print_r($req->fetchAll());
+echo '</pre>';
 
