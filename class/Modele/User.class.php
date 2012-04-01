@@ -30,4 +30,8 @@ interface User {
 	 */
 	public function validateOrder();
 	
+	public function __sleep();
+	
+	public function __wakeup();
+	
 }

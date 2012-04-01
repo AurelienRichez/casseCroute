@@ -16,5 +16,9 @@ namespace modele;
 		* Retourne un tableau de produits contenant le produit et le nom de ces produits
 		*/	
 		public function getProducts();
+		
+		public function __sleep();
+		
+		public function __wakeup();
 
 	}

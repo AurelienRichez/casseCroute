@@ -12,6 +12,7 @@ use \PDO;
 
 class UserImp implements User {
 
+	private $dbFactory;
 	private $db;
 
 	private $id_user;
@@ -24,8 +25,9 @@ class UserImp implements User {
 	private $orders = NULL;
 
 
-	function __construct(PDO $db,$name,$surname,$id_user) {
-		$this->db=$db;
+	function __construct(DBFactory $dbFAc,$name,$surname,$id_user) {
+		$this->dbFactory = $dbFAc;
+		$this->db= $dbFAc->getDataBase();
 			
 		$this->id_user = $id_user;
 		$this->name = $name;
@@ -74,6 +76,14 @@ class UserImp implements User {
 		$this->basket->validateOrder();
 		$this->orders=NULL;
 		$this->lastOrder=NULL;
+	}
+	
+	public function __sleep() {
+		return array('dbFactory','id_user','name','surname','basket','calendar','lastOrder','orders');
+	}
+	
+	public function __wakeup() {
+		$this->db = $this->dbFactory->getDataBase();
 	}
 }
 

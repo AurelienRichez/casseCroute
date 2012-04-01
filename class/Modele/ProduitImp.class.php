@@ -10,13 +10,15 @@ require_once 'Constants.php';
 
 class ProduitImp implements Produit{
 	
+	private $dbFactory;
 	private $db;
 	private $id;
 	private $name;
 	private $price;
 	
-	function __construct(PDO $db, $id){
-		$this->db = $db;
+	function __construct(DBFactory $dbFAc, $id){
+		$this->dbFactory = $dbFAc;
+		$this->db = $dbFAc->getDataBase();
 		if(!preg_match('#[0-9]+#', $id)) {
 			throw new Exception('mauvais identifiant de produit : '.$id);
 		}
@@ -68,5 +70,13 @@ class ProduitImp implements Produit{
 	public function equals(Produit $p) {
 		return $this->id = $p->getID();
 	}
-
+	
+	public function __sleep() {
+		return array('dbFactory','id','name','price');
+	}
+	
+	public function __wakeup() {
+		$this->db = $this->dbFactory->getDataBase();
+	}
+	
 }

@@ -10,7 +10,7 @@ use PDO;
 
 	class PanierImp implements Panier{
 		
-		
+		private $dbFactory;
 		private $produits;
 		private $date;
 		private $calendrier;
@@ -18,8 +18,9 @@ use PDO;
 		
 		
 		
-		function __construct(PDO $db, Calendrier $cal) {
-			$this->db = $db;
+		function __construct(DBFactory $dbFac, Calendrier $cal) {
+			$this->dbFactory = $dbFac;
+			$this->db = $dbFac->getDataBase();
 			$this->calendrier = $cal;
 			$this->date = $this->calendrier->nextValidDay();
 			$this->produits = array();
@@ -87,5 +88,14 @@ use PDO;
 		public function deleteAll() {
 			$this->produits = array();
 		}
+		
+		public function __sleep() {
+			return array('dbFactory','produits','date','calendrier');
+		}
+		
+		public function __wakeup() {
+			$this->db = $this->dbFactory->getDataBase();
+		}
+		
 	}
 

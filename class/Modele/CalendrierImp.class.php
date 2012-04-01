@@ -10,11 +10,12 @@ use \Exception;
 class CalendrierImp implements Calendrier{
 
 	private $db;
-	const NAME_DB = 'calendar';
+	private $dbFactory;
 
 
-	public function __construct(PDO $db){
-		$this->db = $db;
+	public function __construct(DBFactory $dbFac){
+		$this->dbFactory = $dbFac;
+		$this->db = $dbFac->getDataBase();
 
 	}
 
@@ -29,7 +30,7 @@ class CalendrierImp implements Calendrier{
 			return false;
 		}
 		else{
-			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.self::NAME_DB.' WHERE day="'.$date.'"') or die(print_r($this->db->errorInfo()));
+			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.NAME_DB_CALENDRIER.' WHERE day="'.$date.'"') or die(print_r($this->db->errorInfo()));
 			$result = $result->fetchAll();
 			return $result[0]['nb']==1;
 				
@@ -40,7 +41,7 @@ class CalendrierImp implements Calendrier{
 
 		if(date('N',strtotime($date))<6){
 			$this->checkDateFormat($date);
-			$this->db->exec('INSERT INTO `'.self::NAME_DB.'` VALUES("'.$date.'")');
+			$this->db->exec('INSERT INTO `'.NAME_DB_CALENDRIER.'` VALUES("'.$date.'")');
 		}
 		
 	}
@@ -58,7 +59,7 @@ class CalendrierImp implements Calendrier{
 
 		$this->checkDateFormat($date);
 
-		$this->db->exec('DELETE FROM '.self::NAME_DB.' WHERE day="'.$date.'"');
+		$this->db->exec('DELETE FROM '.NAME_DB_CALENDRIER.' WHERE day="'.$date.'"');
 	}
 
 	public function enablePeriod($start,$end){
@@ -96,7 +97,7 @@ class CalendrierImp implements Calendrier{
 		$timestamp  = strtotime($date);
 		
 		
-		$result = $this->db->query('SELECT * FROM '.self::NAME_DB.' WHERE day >= "'.$date.'"');
+		$result = $this->db->query('SELECT * FROM '.NAME_DB_CALENDRIER.' WHERE day >= "'.$date.'"');
 		$result = $result->fetchAll();
 		if (count($result)==0) {
 			throw new Exception('La date entrée est en dehors des prévisions : '.$date);
@@ -104,6 +105,14 @@ class CalendrierImp implements Calendrier{
 		else {
 			return $result[0]['day'];
 		}
+	}
+	
+	public function __sleep() {
+		return array('dbFactory');
+	}
+	
+	public function __wakeup(){
+		$this->db = $dbFactory->getDatabase();
 	}
 		
 	

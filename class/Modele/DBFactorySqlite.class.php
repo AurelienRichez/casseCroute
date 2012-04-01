@@ -36,7 +36,7 @@ class DBFactorySqlite implements DBFActory {
 	}
 	
 	function __wakeup() {
-		$db = 
+		$this->db = new PDO('sqlite::memory:');
 	}
 	
 }

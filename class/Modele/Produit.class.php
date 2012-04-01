@@ -33,6 +33,10 @@ namespace modele;
 		* egalite
 		*/	
 		public function equals(Produit  $p);	
+		
+		public function __sleep();
+		
+		public function __wakeup();
 
 	}
 	

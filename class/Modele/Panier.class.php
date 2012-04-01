@@ -47,5 +47,9 @@ namespace modele;
 		 * vide le panier
 		 */
 		public function deleteAll();
+		
+		public function __sleep();
+		
+		public function __wakeup();
 	}
 
