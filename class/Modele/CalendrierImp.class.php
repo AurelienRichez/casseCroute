@@ -99,7 +99,7 @@ class CalendrierImp implements Calendrier{
 		$result = $this->db->query('SELECT * FROM '.self::NAME_DB.' WHERE day >= "'.$date.'"');
 		$result = $result->fetchAll();
 		if (count($result)==0) {
-			throw new Exception('La date entrée est en dehors des prévisions');
+			throw new Exception('La date entrée est en dehors des prévisions : '.$date);
 		}
 		else {
 			return $result[0]['day'];
