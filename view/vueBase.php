@@ -11,14 +11,14 @@
 use modele\User;
 
 
-/**
- * Fonction écrivant la vue à partir du contenu passé en paramètre
- * et de l'utilisateur
- * @param string $content
- */
 
-function printView($content,User $user) {
-?>
+
+/**
+ * ecrit le début de la page jusqu'à l'endroit ou commence le contenu spécifique
+ * à la page.
+ */
+function writeHead(User $user) {
+	?>
 	<!DOCTYPE html>
 <html>
 <head>
@@ -33,12 +33,18 @@ function printView($content,User $user) {
 			<h1>Casse croute</h1>
 		</div>
 		<p id="connected">Connecté en tant que : <?php echo $user->getName(), ' ', $user->getSurname(); ?></p>
-		<?php 
-/*------------------------------------------------*/
-			echo $content;
-/*------------------------------------------------*/
-		?>
-		
+	
+	<?php 
+}
+
+/**
+ * ecrit la fin de page juste après le contenu. L'user passé en paramètre
+ * est inutile pour le moment. Il pourra servir éventuellement si des
+ * informations sur l'utilisateur doivent apparaitre en pied de page
+ * @param User $user paramèter inutile pour le moment
+ */
+function writeFoot(User $user) {
+	?>
 	</div>
 	<footer>
 		<p>blablablabla</p>

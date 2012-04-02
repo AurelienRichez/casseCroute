@@ -21,4 +21,6 @@
 include 'view/accueil.php';
 include 'view/vueBase.php';
 
-printView(genContent($_SESSION['user']), $_SESSION['user']);
+writeHead($_SESSION['user']);
+writeContent($_SESSION['user']);
+writeFoot($_SESSION['user']);
