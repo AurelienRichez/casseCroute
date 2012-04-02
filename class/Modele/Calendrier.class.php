@@ -55,7 +55,7 @@ interface Calendrier{
 	/**
 	 * retourne le prochain jour valide parmis les jour suivant et aujourd'hui
 	 */
-	public function nextValidDay($date);
+	public function nextValidDay($date = NULL);
 	
 	public function __sleep();
 	

@@ -33,7 +33,7 @@ class DBFactoryMysql implements DBFactory {
 	 */
 	public function getDataBase() {
 		if($this->db = NULL) {
-			$db =  new PDO('mysql:host='.$this->host.';dbname='.$this->db_name,$this->id, $this->pass); //TODO à changer lors de la mise en production
+			$db =  new PDO('mysql:host='.$this->host.';dbname='.$this->db_name,$this->id, $this->pass); 
 		}
 		return $this->db;
 	}

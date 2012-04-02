@@ -14,3 +14,11 @@
  * Ce controleur se contente d'afficher la page d'accueil en appelant la vue, aucun traitement spécial à effectuer sur cette page.
  */
  
+
+
+
+
+include 'view/accueil.php';
+include 'view/vueBase.php';
+
+printView(genContent($_SESSION['user']), $_SESSION['user']);

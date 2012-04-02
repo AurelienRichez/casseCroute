@@ -2,6 +2,7 @@
 namespace modele;
 require_once 'Commande.class.php';
 require_once 'Constants.php';
+require_once 'ProduitImp.class.php';
 
 use PDO;
 use Exception;
@@ -41,7 +42,7 @@ class CommandeImp implements Commande{
 		$aRetourner = array();
 
 		for ($i=0;$i<count($result);$i++) {
-			$aRetourner[$i]['id']=$result[$i]['id_product'];
+			$aRetourner[$i]['prod']=new ProduitImp($this->dbFactory,$result[$i]['id_product']);
 			$aRetourner[$i]['nb']=$result[$i]['nb_product'];
 		}
 

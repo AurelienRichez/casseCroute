@@ -4,17 +4,21 @@
 * created 1 avr. 2012
 */
 
+use modele\DBFactorySqlite;
+
 use modele\UserImp;
 
 require_once 'creationBaseTest.php';
 require_once '../class/Modele/UserImp.class.php';
+require_once '../class/Modele/DBFactorySqlite.class.php';
 
 session_start();
 try {
 	
 	$db = creer();
 	remplirBaseTest($db);
-	$testUser = new UserImp($db, 'Toto', 'Foo', 'toto1');
+	$dbFac = new DBFactorySqlite($db);
+	$testUser = new UserImp($dbFac, 'Toto', 'Foo', 'toto1');
 }
 catch(Exception $e){
 	echo $e->getMessage();

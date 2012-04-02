@@ -24,7 +24,6 @@ class UserImp implements User {
 	private $lastOrder = NULL;
 	private $orders = NULL;
 
-
 	function __construct(DBFactory $dbFac,$name,$surname,$id_user) {
 		$this->dbFactory = $dbFac;
 		$this->db= $dbFac->getDataBase();
@@ -35,6 +34,18 @@ class UserImp implements User {
 			
 		$this->calendar = new CalendrierImp($dbFac);
 		$this->basket = new PanierImp($dbFac, $this->calendar);
+	}
+	
+	public function getName() {
+		return $this->name;
+	}
+	
+	public function getSurname() {
+		return $this->surname;
+	}
+	
+	public function getId() {
+		return $this->id_user;
 	}
 
 	public function getOrders(){
@@ -70,6 +81,10 @@ class UserImp implements User {
 
 	public function getBasket(){
 		return $this->basket;
+	}
+	
+	public function getCalendar() {
+		return $this->calendar;
 	}
 
 	public function validateOrder(){

@@ -112,9 +112,7 @@ class CalendrierImp implements Calendrier{
 	}
 	
 	public function __wakeup(){
-		$this->db = $dbFactory->getDatabase();
+		$this->db = $this->dbFactory->getDatabase();
 	}
-		
-	
 
 }

@@ -8,7 +8,7 @@ namespace modele;
 
 use \PDO;
 
-require_once 'DBFactory.class.php';//TODO à continuer
+require_once 'DBFactory.class.php';
 
 
 

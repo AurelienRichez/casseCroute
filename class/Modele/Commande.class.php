@@ -13,7 +13,8 @@ namespace modele;
 		public function getDate();
 
 		/**
-		* Retourne un tableau de produits contenant le produit et le nom de ces produits
+		* Retourne un tableau de produits contenant le produit et le nom de ces
+		* produits au format $tableau[nb]['prod] et $tableau[nb]['nb']
 		*/	
 		public function getProducts();
 		
