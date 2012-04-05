@@ -15,6 +15,15 @@ CREATE TABLE orders (
 		ON DELETE RESTRICT
 )ENGINE = InnoDB;
 
+CREATE TABLE sellable_item(
+	id_product INT,
+	name CHAR(30),
+	description TEXT,
+	PRIMARY KEY(id_product)
+)ENGINE = InnoDB;
+	
+
+
 CREATE TABLE ordered_products(
 	id_order INT,
 	id_product decimal(10,0),
@@ -24,6 +33,8 @@ CREATE TABLE ordered_products(
 		REFERENCES orders(id_order)
 		ON DELETE CASCADE,
 	FOREIGN KEY(id_product)
-		REFERENCES articles(code)
+		REFERENCES sellable_item(id_product)
 		ON DELETE CASCADE
 )ENGINE = InnoDB;
+
+

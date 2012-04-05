@@ -1,4 +1,5 @@
 
 Options +FollowSymlinks
 RewriteEngine on
-#RewriteRule ^(.*)$ index.php?page=$1 [L]
+
+RewriteRule ^page-([-a-z]+).html$ index.php?page=$1 [L]

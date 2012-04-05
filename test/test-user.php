@@ -19,19 +19,19 @@ $dbFac = new DBFactorySqlite($db);
 
 $userTest = new UserImp($dbFac, 'Toto', 'Foo', 'toto1');
 
-echo '<pre>';
+echo 'commandes future du client :<pre>';
 print_r($userTest->getOrders());
 echo '</pre>';
 
 echo '<br /><br />';
-echo '<pre>';
+echo 'derniere commande du client :<pre>';
 print_r($userTest->getLastOrder());
 echo '</pre>';
 
-$userTest->getBasket()->addProduct(new ProduitImp($dbFac, 10));
+$userTest->getBasket()->addProduct(new ProduitImp($dbFac, 11));
 
 echo '<br /><br />';
-echo '<pre>';
+echo 'produits dans le panier du client :<pre>';
 print_r($userTest->getBasket());
 echo '</pre>';
 

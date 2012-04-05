@@ -23,13 +23,15 @@ function creer() {
   PRIMARY KEY  (`code`)
 	)');
 	$db->query('INSERT INTO `articles` (`code`, `libelleTicket`, `tva`, `prix`) VALUES
-(10, "cafe", 7, 2);');
+(10, "cafe", 7, 2);') or die(print_r($db->errorInfo()));
+	$db->query('INSERT INTO `articles` (`code`, `libelleTicket`, `tva`, `prix`) VALUES
+			(11, "sandwich", 7, 2);') or die(print_r($db->errorInfo()));
 	
 	
 	$db->query("CREATE TABLE calendar (
 	day DATE,
 	PRIMARY KEY(day)
-)");
+)") or die(print_r($db->errorInfo()));
 
 $db->query("CREATE TABLE orders (
 	id_order INTEGER PRIMARY KEY,
@@ -42,31 +44,40 @@ $db->query("CREATE TABLE orders (
 		ON DELETE RESTRICT
 )") or die(print_r($db->errorInfo()));
 
+$db->query("CREATE TABLE sellable_item(
+	id_product INT,
+	name CHAR(30),
+	description TEXT,
+	PRIMARY KEY(id_product)
+)") or die(print_r($db->errorInfo()));
+
 $db->query("CREATE TABLE ordered_products(
 	id_order INT,
-	id_product decimal(10,0),
+	id_product INT,
 	nb_product INT,
 	PRIMARY KEY(id_order,id_product),
 	FOREIGN KEY(id_order)
 		REFERENCES orders(id_order)
 		ON DELETE CASCADE,
 	FOREIGN KEY(id_product)
-		REFERENCES articles(code)
+		REFERENCES sellable_item(id_product)
 		ON DELETE CASCADE
 )")or die(print_r($db->errorInfo()));
 	
 
+$db->query("INSERT INTO sellable_item(id_product,name,description) VALUES(11,'sandwich au jambon', 'Un superbe sandwich au jambon')")or die(print_r($db->errorInfo()));
 	
 	return $db;
 }
 
+creer();
 
 function remplirBaseTest($db) {
 	//ajout d'anciennes commandes
 	$db->exec("INSERT INTO calendar VALUES('2011-12-15')") or die(print_r($db->errorInfo()));
 	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("toto1","Foo","Toto","2011-12-15")') or die(print_r($db->errorInfo()));
 	$id = $db->lastInsertId();
-	$db->exec('INSERT INTO ordered_products(id_order,id_product,nb_product) VALUES('.$id.',10,3)') or die(print_r($db->errorInfo()));
+	$db->exec('INSERT INTO ordered_products(id_order,id_product,nb_product) VALUES('.$id.',11,3)') or die(print_r($db->errorInfo()));
 	$db->exec("INSERT INTO calendar VALUES('2012-01-03')") or die(print_r($db->errorInfo()));
 	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("toto1","Foo","Toto","2012-01-04")') or die(print_r($db->errorInfo()));
 	$id = $db->lastInsertId();

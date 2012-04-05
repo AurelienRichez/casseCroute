@@ -38,7 +38,10 @@ class DBFactorySqlite implements DBFActory {
 	}
 	
 	function __wakeup() {
-		$this->db = new PDO('sqlite::memory:');
+		include_once 'test/creationBaseTest.php';
+		$this->db = creer();
+		remplirBaseTest($this->db);
+		
 	}
 	
 }

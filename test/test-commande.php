@@ -13,7 +13,8 @@ remplirBaseTest($db);
 
 $commandeTest = new CommandeImp(new DBFactorySqlite($db), 1);//première commande créée
 
-echo $commandeTest->getDate(),'<br />';
+echo 'date de la commande :',$commandeTest->getDate(),'<br />';
 echo '<pre>';
+echo 'produits de la commande :';
 print_r($commandeTest->getProducts());
 echo '</pre>';

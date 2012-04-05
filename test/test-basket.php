@@ -20,7 +20,7 @@ remplirBaseTest($db);
 $dbFac = new DBFactorySqlite($db);
 $panierTest = new PanierImp($dbFac, new CalendrierImp($dbFac));
 
-$produit = new ProduitImp($dbFac, 10);
+$produit = new ProduitImp($dbFac, 11);
 
 echo '<pre>';
 //vérification de la date

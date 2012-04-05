@@ -1,6 +1,7 @@
 <?php
 namespace modele;
 use PDO;
+use \Exception;
 
 
 require_once 'Produit.class.php';
@@ -23,10 +24,15 @@ class ProduitImp implements Produit{
 			throw new Exception('mauvais identifiant de produit : '.$id);
 		}
 		$this->id=$id;
-		$req = $this->db->query('SELECT * FROM '.NAME_DB_PRODUIT.' WHERE code='.$id);
+		$req = $this->db->query('SELECT * FROM '.NAME_DB_SELLABLE_PROD.' AS sp INNER JOIN '.NAME_DB_PRODUIT.' AS p ON sp.id_product = p.code WHERE sp.id_product='.$id);
 		$result = $req->fetchAll();
-		$this->name = $result[0]['libelleTicket'];
-		$this->price = $result[0]['prix']*(1+$result[0]['tva']/100);
+		if(count($result) == 1) {
+			$this->name = $result[0]['name'];
+			$this->price = $result[0]['prix']*(1+$result[0]['tva']/100);
+		}
+		else {
+			throw new Exception('erreur : Mauvais id de produit');
+		}
 	}
 
 	/**
@@ -61,7 +67,9 @@ class ProduitImp implements Produit{
 	 * retourne la description du produit
 	 */
 	public function getDescription() {
-		return NULL; //TODO non implémenté pour le moment
+		$req = $this->db->query('SELECT description FROM '.NAME_DB_SELLABLE_PROD.' WHERE id_product='.$this->id);
+		$result = $req->fetch();
+		return $result['description']; //TODO non implémenté pour le moment
 	}
 
 	/**
