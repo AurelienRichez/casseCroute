@@ -49,6 +49,9 @@ try{
 		else
 			include_once 'controller/accueil.php';
 	}
+	else{
+		include_once 'controller/accueil.php';
+	}
 }
 catch(Exception $e) {
 	echo 'Une erreur est survenue, l\'erreur a été enregistrée';
