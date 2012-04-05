@@ -17,11 +17,10 @@ use modele\DBFactorySqlite;
 $_SERVER['HTTP_SHIB_GIVENNAME'] = 'Toto';
 $_SERVER['HTTP_SHIB_SURNAME'] = 'Foo';
 $_SERVER['REMOTE_USER'] = 'toto1';
+include 'test/creationBaseTest.php';
 //[/TEST]
 
-include 'test/creationBaseTest.php';
-include 'class/Modele/DBFactorySqlite.class.php';
-include 'class/Modele/UserImp.class.php';
+require_once 'class/loadclasses.php';
 
 session_start();
 
