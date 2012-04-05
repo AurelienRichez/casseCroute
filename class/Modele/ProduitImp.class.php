@@ -69,7 +69,7 @@ class ProduitImp implements Produit{
 	public function getDescription() {
 		$req = $this->db->query('SELECT description FROM '.NAME_DB_SELLABLE_PROD.' WHERE id_product='.$this->id);
 		$result = $req->fetch();
-		return $result['description']; //TODO non implémenté pour le moment
+		return $result['description'];
 	}
 
 	/**

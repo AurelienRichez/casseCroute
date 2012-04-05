@@ -4,4 +4,4 @@ DirectoryIndex index.php?page=accueil
 Options +FollowSymlinks
 RewriteEngine on
 
-RewriteRule ^page-([-a-z]+).html$ index.php?page=$1 [L]
+RewriteRule ^page-([-a-z]+)\.html$ index.php?page=$1 [QSA,L]
