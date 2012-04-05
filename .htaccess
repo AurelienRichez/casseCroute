@@ -1,4 +1,6 @@
 
+DirectoryIndex index.php?page=accueil
+
 Options +FollowSymlinks
 RewriteEngine on
 

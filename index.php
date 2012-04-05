@@ -52,5 +52,13 @@ try{
 	}
 }
 catch(Exception $e) {
-	echo $e->getMessage();
+	echo 'Une erreur est survenue, l\'erreur a été enregistrée';
+	
+	$file = fopen("error/log.txt","a");
+	fputs($file,"\n----------------------\n");
+	fputs($file, date("d-m-Y,H:i:s").":\n\t".$e->getMessage());
+	fputs($file,"\n\texception lancée par :".$e->getFile());
+	fputs($file,"\n\t ligne ".$e->getLine());
+	fputs($file,"\n\t trace : \n".$e->getTraceAsString());
+	fclose($file);
 }

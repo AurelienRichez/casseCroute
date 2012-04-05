@@ -1,0 +1,2 @@
+#personne ne doit voir ce dossier
+deny from all
