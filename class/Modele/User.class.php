@@ -57,6 +57,13 @@ interface User {
 	 */
 	public function validateOrder();
 	
+	/**
+	 * Fonction vérifiant si la commande appartient bien à l'utilisateur 
+	 * courant et supprimant la commande
+	 * @param int $id
+	 */
+	public function deleteOrder($id);
+	
 	public function __sleep();
 	
 	public function __wakeup();

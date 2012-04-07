@@ -35,7 +35,17 @@ echo 'produits dans le panier du client :<pre>';
 print_r($userTest->getBasket());
 echo '</pre>';
 
+$userTest->deleteOrder($userTest->getLastOrder()->getID());
 
+/*  
+// La fonction CURDATE ne semble pas exister avec sqlite donc il est nécessaire 
+// d'avoir une base de donnée mysql pour faire ce test.
+
+echo '<br /><br />';
+echo 'commandes du client après supression de la dernière commande :<pre>';
+print_r($userTest->getOrders());
+echo '</pre>';
+//*/
 
 }
 catch (Exception $e) {

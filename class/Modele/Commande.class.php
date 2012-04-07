@@ -18,6 +18,11 @@ namespace modele;
 		*/	
 		public function getProducts();
 		
+		/**
+		 * Retourne l'identfiant de la commande.
+		 */
+		public function getId();
+		
 		public function __sleep();
 		
 		public function __wakeup();

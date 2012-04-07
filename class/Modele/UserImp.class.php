@@ -93,6 +93,13 @@ class UserImp implements User {
 		$this->lastOrder=NULL;
 	}
 	
+	public function deleteOrder($id_order) {
+		$req = $this->db->prepare('DELETE FROM orders WHERE id_order=? AND id_user="'.$this->id_user.'" AND day>=CURDATE()') or die(print_r($this->db->errorInfo()));
+		$req->execute(array($id_order));
+		$this->orders=NULL;
+		$this->lastOrder=NULL;
+	}
+	
 	public function __sleep() {
 		return array('dbFactory','id_user','name','surname','basket','calendar','lastOrder','orders');
 	}

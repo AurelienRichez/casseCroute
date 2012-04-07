@@ -90,5 +90,10 @@ function remplirBaseTest($db) {
 	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("toto1","Foo","Toto","2012-05-03")') or die(print_r($db->errorInfo()));
 	$id = $db->lastInsertId();
 	$db->exec('INSERT INTO ordered_products(id_order,id_product,nb_product) VALUES('.$id.',11,2)') or die(print_r($db->errorInfo()));
+	
+	$db->exec("INSERT INTO calendar VALUES('2012-07-04')") or die(print_r($db->errorInfo()));
+	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("toto1","Foo","Toto","2012-07-04")') or die(print_r($db->errorInfo()));
+	$id = $db->lastInsertId();
+	$db->exec('INSERT INTO ordered_products(id_order,id_product,nb_product) VALUES('.$id.',11,1)') or die(print_r($db->errorInfo()));
 }
 

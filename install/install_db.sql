@@ -22,8 +22,6 @@ CREATE TABLE sellable_item(
 	PRIMARY KEY(id_product)
 )ENGINE = InnoDB;
 	
-
-
 CREATE TABLE ordered_products(
 	id_order INT,
 	id_product decimal(10,0),

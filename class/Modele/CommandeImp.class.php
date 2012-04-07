@@ -34,6 +34,10 @@ class CommandeImp implements Commande{
 		return $tableResult[0]['day'];
 
 	}
+	
+	public function getId() {
+		return $this->id;
+	}
 
 	public function getProducts() {
 		$result = $this->db->query('SELECT * FROM '.NAME_DB_COMMANDE.' WHERE id_order='.$this->id);
