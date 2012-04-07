@@ -70,7 +70,6 @@ $db->query("INSERT INTO sellable_item(id_product,name,description) VALUES(11,'sa
 	return $db;
 }
 
-creer();
 
 function remplirBaseTest($db) {
 	//ajout d'anciennes commandes
@@ -78,7 +77,7 @@ function remplirBaseTest($db) {
 	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("toto1","Foo","Toto","2011-12-15")') or die(print_r($db->errorInfo()));
 	$id = $db->lastInsertId();
 	$db->exec('INSERT INTO ordered_products(id_order,id_product,nb_product) VALUES('.$id.',11,3)') or die(print_r($db->errorInfo()));
-	$db->exec("INSERT INTO calendar VALUES('2012-01-03')") or die(print_r($db->errorInfo()));
+	$db->exec("INSERT INTO calendar VALUES('2012-01-04')") or die(print_r($db->errorInfo()));
 	$db->exec('INSERT INTO orders(id_user,surname_user,name_user,day) VALUES("toto1","Foo","Toto","2012-01-04")') or die(print_r($db->errorInfo()));
 	$id = $db->lastInsertId();
 	$db->exec('INSERT INTO ordered_products(id_order,id_product,nb_product) VALUES('.$id.',11,2)') or die(print_r($db->errorInfo()));

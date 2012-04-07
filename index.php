@@ -11,6 +11,8 @@
 //[TEST]
 //TODO à retirer lors de la mise en production, juste pour créer les variables 
 //nécessaires
+use modele\DBFactoryMysql;
+
 use modele\UserImp;
 use modele\DBFactorySqlite;
 
@@ -28,7 +30,7 @@ try{
 	if(!isset($_SESSION['user'])) {
 		$db = creer();
 		remplirBaseTest($db);
-		$dbFac = new DBFactorySqlite($db);//TODO à changer lors de la mise en production
+		$dbFac = new DBFactoryMysql('localhost', 'test-casse-croute', 'root', '');//TODO à changer lors de la mise en production
 		$testUser = new UserImp($dbFac, 'Toto', 'Foo', 'toto1');
 			
 		$_SESSION['user'] = $testUser;
@@ -42,7 +44,7 @@ try{
 			}
 			else {
 				header('HTTP/1.0 404 Not Found');
-				echo 'Page inexistante';//TODO éventuellement faire une page mieux en cas d'erreur 404, avec à minima un lien vers l'accueil
+				echo 'Page inexistante';//TODO faire une page mieux en cas d'erreur 404, avec à minima un lien vers l'accueil
 				exit;
 			}
 		}

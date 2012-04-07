@@ -24,7 +24,7 @@ CREATE TABLE sellable_item(
 	
 CREATE TABLE ordered_products(
 	id_order INT,
-	id_product decimal(10,0),
+	id_product INT,
 	nb_product INT,
 	PRIMARY KEY(id_order,id_product),
 	FOREIGN KEY(id_order)
@@ -32,7 +32,7 @@ CREATE TABLE ordered_products(
 		ON DELETE CASCADE,
 	FOREIGN KEY(id_product)
 		REFERENCES sellable_item(id_product)
-		ON DELETE CASCADE
+		ON DELETE RESTRICT
 )ENGINE = InnoDB;
 
 
