@@ -5,3 +5,10 @@
 */
 
 //TODO à faire
+
+use modele\User;
+
+
+function writeContent(User $user) {
+	
+}
