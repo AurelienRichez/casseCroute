@@ -4,7 +4,6 @@
 * created 5 avr. 2012
 */
 
-//TODO à faire
 
 use modele\User;
 
@@ -43,7 +42,8 @@ function writeContent(User $user) {
 		?>
 		
 		</table>
-		<p><a href="page-accueil.html">Retour à la page d'accueil</a></p>
+		
 		<?php 
 	}
+	echo '<p><a href="page-accueil.html">Retour à la page d\'accueil</a></p>';
 }

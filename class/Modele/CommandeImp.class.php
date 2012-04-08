@@ -52,7 +52,7 @@ class CommandeImp implements Commande{
 
 		return $aRetourner;
 	}
-
+	
 	public function __sleep() {
 		return array('dbFactory','id');
 	}

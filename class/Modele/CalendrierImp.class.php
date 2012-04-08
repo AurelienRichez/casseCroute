@@ -25,8 +25,8 @@ class CalendrierImp implements Calendrier{
 		//puis va ensuite chercher dans la bas de donnée si cette date existe dans la table
 		//(=sandwiches ce jour là)
 		$this->checkDateFormat($date);//vérification de la validité
-		
-		if(date('N',strtotime($date))>=6){
+		$timestamp = strtotime($date);
+		if(date('N',$timestamp)>=6 || $timestamp < strtotime($this->nextValidDay())){
 			return false;
 		}
 		else{

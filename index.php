@@ -12,28 +12,24 @@
 //TODO à retirer lors de la mise en production, juste pour créer les variables 
 //nécessaires
 use modele\DBFactoryMysql;
-
 use modele\UserImp;
-use modele\DBFactorySqlite;
 
-$_SERVER['HTTP_SHIB_GIVENNAME'] = 'Toto';
+$_SERVER['HTTP_SHIB_GIVENNAME'] = 'Titi';
 $_SERVER['HTTP_SHIB_SURNAME'] = 'Foo';
-$_SERVER['REMOTE_USER'] = 'toto1';
+$_SERVER['REMOTE_USER'] = 'titi2';
 include 'test/creationBaseTest.php';
 //[/TEST]
-
 require_once 'class/loadclasses.php';
 
 session_start();
-
 try{
 	if(!isset($_SESSION['user'])) {
 		$db = creer();
 		remplirBaseTest($db);
 		$dbFac = new DBFactoryMysql('localhost', 'test-casse-croute', 'root', '');//TODO à changer lors de la mise en production
-		$testUser = new UserImp($dbFac, 'Toto', 'Foo', 'toto1');
+		$user = new UserImp($dbFac, $_SERVER['HTTP_SHIB_GIVENNAME'], $_SERVER['HTTP_SHIB_SURNAME'], $_SERVER['REMOTE_USER']);
 			
-		$_SESSION['user'] = $testUser;
+		$_SESSION['user'] = $user;
 	}
 	
 	if(isset($_GET['page'])) {
