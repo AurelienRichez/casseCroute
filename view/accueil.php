@@ -11,9 +11,9 @@ use modele\User;
 function writeContent(User $user) {?>
 	<nav>
 	<ul>
-	<li><a href="#" class="image-nav"><img
-	src="images/sandwiches.png" alt="sandwiches" /></a><a href="#"
-	class="text-nav">Liste des sandwiches</a></li>
+	<li><a href="page-produits.html" class="image-nav"><img
+	src="images/sandwiches.png" alt="produits" /></a><a href="page-produits.html"
+	class="text-nav">Liste des produits</a></li>
 	<li><a href="page-commandes.html" class="image-nav"><img alt="commandes"
 	src="images/papier.png" /></a><a href="page-commandes.html" class="text-nav">Voir
 	mes commandes</a></li>

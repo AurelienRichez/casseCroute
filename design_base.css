@@ -94,6 +94,7 @@ img {
 #connected {
 	font-size: 0.7em;
 	margin:0px;
+	text-align:left;
 }
 
 @media screen and (max-width:800px) {
@@ -192,6 +193,24 @@ td,tr {
 
 td {
 	padding:5px;
+}
+
+
+/*--------------------------------[]--------------------------------*/
+
+.cadre_produit {
+	border:solid black 1px;
+	text-align: left;
+	clear:both;
+	padding:10px;
+}
+
+.cadre_produit img {
+	float:left;
+}
+
+.cadre_produit form {
+	float:right;
 }
 
 

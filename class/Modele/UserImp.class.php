@@ -47,6 +47,10 @@ class UserImp implements User {
 	public function getId() {
 		return $this->id_user;
 	}
+	
+	public function getDBFActory() {
+		return $this->dbFactory;
+	}
 
 	public function getOrders(){
 		//La fonction récupère les commande une première fois et n'est plus mise

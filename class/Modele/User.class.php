@@ -34,6 +34,12 @@ interface User {
 	
 	
 	/**
+	 * Retourne la fabrique de base de donnée.
+	 * @return DBFactory fabrique de base de donnée
+	 */
+	public function getDBFactory();
+	
+	/**
 	 * @param int $id l'id de la commande 
 	 * @return Commande la commande d'id id si elle appartient bien à l'utilisateur, null sinon
 	 */
@@ -70,6 +76,7 @@ interface User {
 	 * @param int $id
 	 */
 	public function deleteOrder($id);
+	
 	
 	public function __sleep();
 	

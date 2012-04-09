@@ -68,6 +68,10 @@ use PDO;
 		}
 
 		public function deleteProduct(Produit $p, $nb=1){
+			if(!preg_match('#[0-9]+#', $nb)) {
+				throw new Exception('Le nombre de produit saisi n\'est pas valide');
+			}
+			
 			if(isset($this->produits[$p->getID()])){
 				$this->produits[$p->getID()]['nb']=$this->produits[$p->getID()]['nb']-$nb;
 				if($this->produits[$p->getID()]['nb']<=0)

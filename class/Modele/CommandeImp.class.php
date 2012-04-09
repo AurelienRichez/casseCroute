@@ -58,7 +58,7 @@ class CommandeImp implements Commande{
 		return $aRetourner;
 	}
 	
-	//TODO implémenter les fonction restante
+	//TODO implémenter les fonctions restante
 	
 	public function getNameUser() {//TODO
 		$req = $this->db->query('SELECT name_user FROM orders WHERE id_order=');

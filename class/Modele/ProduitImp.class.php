@@ -79,6 +79,20 @@ class ProduitImp implements Produit{
 		return $this->id = $p->getID();
 	}
 	
+	/**
+	 * retourne tous les produits
+	 */
+	public static function getAllProducts(DBFactory $dbFac) {
+		$db = $dbFac->getDataBase();
+		$req = $db->query('SELECT * FROM sellable_item');
+		$result = $req->fetchAll();
+		$aRetourner = array();
+		for($i=0;$i<count($result);$i++) {
+			$aRetourner[$i] = new ProduitImp($dbFac, $result[$i]['id_product']);
+		}
+		return $aRetourner;
+	}
+	
 	public function __sleep() {
 		return array('dbFactory','id','name','price');
 	}
