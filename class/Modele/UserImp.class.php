@@ -48,7 +48,7 @@ class UserImp implements User {
 		return $this->id_user;
 	}
 	
-	public function getDBFActory() {
+	public function getDBFactory() {
 		return $this->dbFactory;
 	}
 
