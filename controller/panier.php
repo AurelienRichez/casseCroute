@@ -5,10 +5,10 @@
 */
 
 //TODO à faire
-
+//TODO rajouter la gestion des suppressions de sandwiches
 include 'view/vueBase.php';
 include 'view/panier.php';
 
-writeHead($_SERVER['user']);
-
-writeFoot($_SERVER['user']);
+writeHead($_SESSION['user']);
+writeContent($_SESSION['user']);
+writeFoot($_SESSION['user']);

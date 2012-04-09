@@ -56,6 +56,7 @@ interface User {
 	
 	/**
 	 * retourne le panier de l'utilisateur
+	 * @return Panier le panier de l'utilisateur
 	 */
 	public function getBasket();
 	

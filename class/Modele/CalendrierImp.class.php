@@ -107,6 +107,14 @@ class CalendrierImp implements Calendrier{
 		}
 	}
 	
+	/**
+	 * retourne la date au format JJ/MM/AAAA
+	 * @param string $date
+	 */
+	public static function frenchDate($date) {
+		return date('d/m/Y',strtotime($date));
+	}
+	
 	public function __sleep() {
 		return array('dbFactory');
 	}
