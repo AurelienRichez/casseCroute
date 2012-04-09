@@ -17,10 +17,15 @@ class CommandeImp implements Commande{
 	const NAME_DB = 'orders';
 
 
-	public function __construct(DBFactory $dbFac, $id){
+	public function __construct(DBFactory $dbFac,$id){
 		$this->dbFactory = $dbFac;
 		$this->db = $dbFac->getDataBase();
-		$this->id = $id;
+		if(is_numeric($id)) {
+			$this->id = $id;
+		}
+		else{
+			throw new Exception('id de commande non valide, l\'id doit être un nombre');
+		}
 	}
 
 	public function getDate() {
@@ -51,6 +56,22 @@ class CommandeImp implements Commande{
 		}
 
 		return $aRetourner;
+	}
+	
+	//TODO implémenter les fonction restante
+	
+	public function getNameUser() {//TODO
+		$req = $this->db->query('SELECT name_user FROM orders WHERE id_order=');
+	}
+		
+			
+	public function getSurnameUser(){
+		//TODO à faire
+	}
+		
+		
+	public function getIdUser(){ 
+		//TODO à faire
 	}
 	
 	public function __sleep() {

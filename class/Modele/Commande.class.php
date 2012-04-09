@@ -19,6 +19,24 @@ namespace modele;
 		public function getProducts();
 		
 		/**
+		 * Retourne le prénom de l'utilisateur à l'origine de la commande
+		 * @return string prénom de l'utilisateur
+		 */
+		public function getNameUser();
+		
+		/**
+		 * Retourne le nom de l'utilisateur à l'origine de la commande
+		 * @return string nom de l'utilisateur
+		 */		
+		public function getSurnameUser();
+		
+		/**
+		 * Retourne l'id de l'utilisateur à l'origine de la commande
+		 * @return int id de l'utilisateur
+		 */
+		public function getIdUser();
+		
+		/**
 		 * Retourne l'identfiant de la commande.
 		 */
 		public function getId();

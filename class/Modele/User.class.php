@@ -32,6 +32,13 @@ interface User {
 	
 	public function getOrders();
 	
+	
+	/**
+	 * @param int $id l'id de la commande 
+	 * @return Commande la commande d'id id si elle appartient bien à l'utilisateur, null sinon
+	 */
+	public function getOrder($id);
+	
 	/**
 	 * retourne la dernière commande (commandé passée ou commade pour un 
 	 * prochain jour) faites par l'utilisateur ou null si aucune commande n'est

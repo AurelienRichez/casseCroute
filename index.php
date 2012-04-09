@@ -16,7 +16,7 @@ use modele\UserImp;
 
 $_SERVER['HTTP_SHIB_GIVENNAME'] = 'Titi';
 $_SERVER['HTTP_SHIB_SURNAME'] = 'Foo';
-$_SERVER['REMOTE_USER'] = 'titi2';
+$_SERVER['REMOTE_USER'] = 'toto1';
 include 'test/creationBaseTest.php';
 //[/TEST]
 require_once 'class/loadclasses.php';

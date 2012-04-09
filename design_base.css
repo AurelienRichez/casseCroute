@@ -19,6 +19,7 @@ html,body {
 
 body {
 	background:rgb(91,152,175);
+	text-align: center;
 }
 
 img {
@@ -51,6 +52,7 @@ img {
 	background:url("images/backgroundbanner.png") repeat-x;
 	height:110px;
 	padding-top:5px;
+	text-align: left;
 }
 
 #banner h1 {

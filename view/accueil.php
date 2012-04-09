@@ -14,7 +14,7 @@ function writeContent(User $user) {?>
 	<li><a href="#" class="image-nav"><img
 	src="images/sandwiches.png" alt="sandwiches" /></a><a href="#"
 	class="text-nav">Liste des sandwiches</a></li>
-	<li><a href="#" class="image-nav"><img alt="commandes"
+	<li><a href="page-commandes.html" class="image-nav"><img alt="commandes"
 	src="images/papier.png" /></a><a href="page-commandes.html" class="text-nav">Voir
 	mes commandes</a></li>
 	<li><a href="#" class="image-nav"><img alt="FAQ"

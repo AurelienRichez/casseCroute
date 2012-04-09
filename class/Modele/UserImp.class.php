@@ -100,6 +100,18 @@ class UserImp implements User {
 		$this->lastOrder=NULL;
 	}
 	
+	public function getOrder($id) {
+		$req = $this->db->prepare('SELECT * FROM orders WHERE id_order=? AND id_user ="'.$this->id_user.'"');
+		$req->execute(array($id));
+		$result = $req->fetchAll();
+		if(count($result)==0) {
+			return NULL;
+		}
+		else {
+			return new CommandeImp($this->dbFactory, $id);
+		}
+	}
+	
 	public function __sleep() {
 		return array('dbFactory','id_user','name','surname','basket','calendar','lastOrder','orders');
 	}
