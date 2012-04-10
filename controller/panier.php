@@ -9,22 +9,36 @@
  * panier.
  */
 
-use modele\ProduitImp;
 
 include 'view/vueBase.php';
 include 'view/panier.php';
 
 $displayDeleted = false;
+$displayValidated = false;
 
 if(isset($_POST['id']) && isset($_POST['nb'])) {
-	$prod = new ProduitImp($_SESSION['user']->getDBFactory(), $_POST['id']);
-	$_SESSION['user']->getBasket()->deleteProduct($prod);
-	$displayDeleted = true;
+		$prod = new ProduitImp($_SESSION['user']->getDBFactory(), $_POST['id']);
+		$_SESSION['user']->getBasket()->deleteProduct($prod);
+		$displayDeleted = true;
+}
+
+if(isset($_POST['validateOrder'])) {
+	try {
+	$_SESSION['user']->validateOrder();
+	$displayValidated = true;
+	}
+	catch(Exception $e){
+	//Erreur survenant si le panier est vide
+	//TODO afficher l'erreur
+	}
 }
 
 writeHead($_SESSION['user']);
 if($displayDeleted) {
 	writeDeletedProduct($prod, $_POST['nb']);
+}
+if($displayValidated) {
+	writeValidatedOrder($_SESSION['user']);
 }
 writeContent($_SESSION['user']);
 writeFoot($_SESSION['user']);

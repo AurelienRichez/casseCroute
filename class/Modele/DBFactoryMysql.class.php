@@ -5,10 +5,6 @@
 */
 
 
-namespace modele;
-
-use \PDO;
-
 require_once 'DBFactory.class.php';
 
 class DBFactoryMysql implements DBFactory {

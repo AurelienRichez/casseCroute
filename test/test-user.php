@@ -1,8 +1,5 @@
 <?php
-use modele\DBFactorySqlite;
 
-use modele\ProduitImp;
-use modele\UserImp;
 
 require_once 'creationBaseTest.php';
 require_once '../class/Modele/UserImp.class.php';

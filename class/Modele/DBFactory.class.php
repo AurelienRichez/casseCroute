@@ -10,7 +10,6 @@
  * impossible (besoin de recréer la connexion à chaque script).
  */
 
-namespace modele;
 
 interface DBFactory {
 

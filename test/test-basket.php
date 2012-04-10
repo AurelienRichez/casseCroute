@@ -1,8 +1,4 @@
 <?php
-use modele\DBFactorySqlite;
-use modele\PanierImp;
-use modele\CalendrierImp;
-use modele\ProduitImp;
 
 
 require_once 'creationBaseTest.php';

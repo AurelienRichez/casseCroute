@@ -6,7 +6,7 @@
 
 
 
-use modele\Commande;
+
 
 /**
  * Ecrit le contenu correpondant à l'annonce de la suppression de la commande.

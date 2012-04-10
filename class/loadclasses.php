@@ -5,7 +5,7 @@
 */
 
 function loadClass($class) {
-	require_once 'class/'.$class.'.class.php';
+	require_once 'class/Modele/'.$class.'.class.php';
 }
 
 spl_autoload_register('loadClass');

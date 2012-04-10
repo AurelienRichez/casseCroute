@@ -6,12 +6,6 @@
 
 
 
-use modele\Produit;
-
-use modele\CalendrierImp;
-
-use modele\User;
-
 
 function writeContent(User $user) {
 	$basket = $user->getBasket();
@@ -34,6 +28,9 @@ function writeContent(User $user) {
 		</form></td></tr>';
 	}
 	echo '</table>';
+	if($user->getBasket()->getNumberOfProducts()>0) {
+		echo '<form method="post"><input type="hidden" name="validateOrder" /><input type="submit" value="valider la commande" /></form>';
+	}
 	
 	echo '<p><a href ="page-accueil.html" >Retour à l\'accueil</a></p>';
 }
@@ -42,4 +39,8 @@ function writeDeletedProduct(Produit $prod, $nb) {
 	//les paramètes ne sont pas utilisés,ils le seront peut être ensuite
 	//pour afficher quel produit a été supprimé
 	echo '<p>Produit enlevé du panier</p>';
+}
+
+function writeValidatedOrder(User $user) {
+	echo '<p>Commande validée. <a href="page-commandes.html">voir mes commandes</a></p>';
 }

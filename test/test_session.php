@@ -4,9 +4,7 @@
 * created 1 avr. 2012
 */
 
-use modele\DBFactorySqlite;
 
-use modele\UserImp;
 
 require_once 'creationBaseTest.php';
 require_once '../class/Modele/UserImp.class.php';

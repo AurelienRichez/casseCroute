@@ -1,6 +1,5 @@
 <?php
 
-namespace modele;
 
 require_once 'User.class.php';
 require_once 'PanierImp.class.php';
@@ -8,7 +7,6 @@ require_once 'CalendrierImp.class.php';
 require_once 'CommandeImp.class.php';
 require_once 'Constants.php';
 
-use \PDO;
 
 class UserImp implements User {
 
@@ -92,7 +90,7 @@ class UserImp implements User {
 	}
 
 	public function validateOrder(){
-		$this->basket->validateOrder();
+		$this->basket->validateOrder($this->name, $this->surname, $this->id_user);
 		$this->orders=NULL;
 		$this->lastOrder=NULL;
 	}

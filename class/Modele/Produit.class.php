@@ -1,6 +1,5 @@
 <?php
 
-namespace modele;
 
 	interface Produit{
 		

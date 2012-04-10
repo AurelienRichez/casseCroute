@@ -1,6 +1,5 @@
 <?php
 
-namespace modele;
 	
 	include_once('Produit.class.php');
 

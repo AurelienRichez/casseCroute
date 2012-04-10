@@ -4,8 +4,6 @@
  * vue de l'accueil
  */
 
-use modele\User;
-
 
 
 function writeContent(User $user) {?>

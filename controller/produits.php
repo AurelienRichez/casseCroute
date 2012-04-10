@@ -9,8 +9,6 @@
  */
 
 
-use modele\Panier;
-use modele\ProduitImp;
 
 include_once 'view/vueBase.php';
 include_once 'view/produits.php';

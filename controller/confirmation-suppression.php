@@ -5,14 +5,13 @@
 */
 
 
-use modele\CommandeImp;
 
 include_once 'view/vueBase.php';
 include_once 'view/confirmation-suppression.php';
 
-const DELETED_ORDER = 1;
-const UNKNOWN_ORDER = 2;
-const CONFIRM = 3;
+define('DELETED_ORDER',1);
+define('UNKNOWN_ORDER',2);
+define('CONFIRM',3);
 
 
 $aAfficher;

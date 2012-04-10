@@ -1,7 +1,5 @@
 <?php
 
-namespace modele;
-use PDO;	
 
 	require_once 'Panier.class.php';
 	require_once 'Constants.php';
@@ -31,7 +29,11 @@ use PDO;
 		}
 		
 		public function getNumberOfProducts(){
-			return count($this->produits);
+			$nb = 0;
+			foreach ($this->produits as $p) {
+				$nb+=$p['nb'];
+			}
+			return $nb;
 		}
 		
 		public function setDate($date) {
@@ -48,7 +50,7 @@ use PDO;
 			foreach($this->produits as $p) {
 				$prix+=$p['prod']->getPrice()*$p['nb'];
 			}
-			return prix;
+			return $prix;
 		}
 	
 		public function addProduct(Produit $p, $nb = 1){

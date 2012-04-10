@@ -8,7 +8,6 @@
  * page implémentant la base de la vue : header et footer.
  * à appeler lors de l'affichage de la vue.
  */
-use modele\User;
 
 
 
@@ -32,7 +31,19 @@ function writeHead(User $user) {
 			<img alt="logo EMN" src="images/logo-emn.png">
 			<h1>Casse croute</h1>
 		</div>
+		<div id="panier">
+		<h2><a href="page-panier.html">Panier</a></h2><?php 
+		$nbProduits = $user->getBasket()->getNumberOfProducts();
+		if($nbProduits > 1 ) {
+			echo '<p>',$nbProduits,' produits pour ',$user->getBasket()->getTotalPrice(),' €</p>';
+		}
+		else {
+			echo '<p>',$nbProduits,' produit pour ',$user->getBasket()->getTotalPrice(),' €</p>';
+		}
+		
+		?></div>
 		<p id="connected">Connecté en tant que : <?php echo $user->getName(), ' ', $user->getSurname(); ?></p>
+		
 	
 	<?php 
 }

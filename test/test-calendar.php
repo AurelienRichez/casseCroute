@@ -1,7 +1,5 @@
 <?php
 
-use modele\CalendrierImp;
-use modele\DBFactorySqlite;
 
 require_once '../class/Modele/CalendrierImp.class.php';
 require_once 'creationBaseTest.php';

@@ -5,7 +5,6 @@
 */
 
 
-use modele\User;
 
 function writeContent(User $user) {
 	?>

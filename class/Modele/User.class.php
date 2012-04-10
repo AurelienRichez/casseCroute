@@ -1,7 +1,5 @@
 <?php
 
-namespace modele;
-
 require_once 'Produit.class.php';
 
 interface User {

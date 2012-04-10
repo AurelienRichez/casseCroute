@@ -1,10 +1,7 @@
 <?php
-namespace modele;
 require_once 'Calendrier.class.php';
 include_once 'Constants.php';
 
-use PDO;
-use \Exception;
 
 
 class CalendrierImp implements Calendrier{

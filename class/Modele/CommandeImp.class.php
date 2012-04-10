@@ -1,11 +1,10 @@
 <?php
-namespace modele;
+
 require_once 'Commande.class.php';
 require_once 'Constants.php';
 require_once 'ProduitImp.class.php';
 
-use PDO;
-use Exception;
+
 
 
 

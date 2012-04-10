@@ -8,16 +8,14 @@
  * shibboleth afin d'avoir les variables d'environnement créées  
  */
 
+
 //[TEST]
 //TODO à retirer lors de la mise en production, juste pour créer les variables 
 //nécessaires
-use modele\DBFactoryMysql;
-use modele\UserImp;
 
 $_SERVER['HTTP_SHIB_GIVENNAME'] = 'Titi';
 $_SERVER['HTTP_SHIB_SURNAME'] = 'Foo';
 $_SERVER['REMOTE_USER'] = 'toto1';
-include 'test/creationBaseTest.php';
 //[/TEST]
 require_once 'class/loadclasses.php';
 

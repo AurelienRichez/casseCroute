@@ -1,7 +1,4 @@
 <?php
-namespace modele;
-use PDO;
-use \Exception;
 
 
 require_once 'Produit.class.php';

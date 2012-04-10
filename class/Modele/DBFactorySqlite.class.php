@@ -4,9 +4,6 @@
 * created 1 avr. 2012
 */
 
-namespace modele;
-
-use \PDO;
 
 require_once 'DBFactory.class.php';
 

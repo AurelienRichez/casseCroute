@@ -5,12 +5,6 @@
 */
 
 
-use modele\Produit;
-
-use modele\UserImp;
-
-use modele\ProduitImp;
-
 function writeContent(UserImp $user) {
 	$produits = ProduitImp::getAllProducts($user->getDBFActory());
 	
