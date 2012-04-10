@@ -12,7 +12,7 @@ use modele\UserImp;
 use modele\ProduitImp;
 
 function writeContent(UserImp $user) {
-	$produits = ProduitImp::getAllProducts($user->getDBFActory());//TODO
+	$produits = ProduitImp::getAllProducts($user->getDBFActory());
 	
 	foreach($produits as $p) {
 		$description = $p->getDescription();

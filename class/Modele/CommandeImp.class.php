@@ -60,7 +60,7 @@ class CommandeImp implements Commande{
 	
 	//TODO implémenter les fonctions restante, pas très urgent
 	
-	public function getNameUser() {//TODO
+	public function getNameUser() {//TODO à faire
 		$req = $this->db->query('SELECT name_user FROM orders WHERE id_order=');
 	}
 		

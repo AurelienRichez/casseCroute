@@ -9,8 +9,6 @@
  * panier.
  */
 
-//TODO à faire
-//TODO rajouter la gestion des suppressions de sandwiches
 use modele\ProduitImp;
 
 include 'view/vueBase.php';

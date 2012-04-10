@@ -32,6 +32,11 @@ namespace modele;
 		 * retourne la date au format YYYY-MM-DD
 		 */
 		public function getDate();
+		
+		/**
+		 * retourne le cout total des produits dans le panier
+		 */
+		public function getTotalPrice();
 
 		/**
 		* Valide la commande

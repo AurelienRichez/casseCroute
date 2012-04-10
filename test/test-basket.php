@@ -14,6 +14,8 @@ require_once '../class/Modele/DBFactorySqlite.class.php';
 
 $db = creer();
 remplirBaseTest($db);
+
+//TODO tester le prix total
 // /!\ ATTENTION : ce test nécessite d'avoir un calendrier valide, un produit valide
 // 
 

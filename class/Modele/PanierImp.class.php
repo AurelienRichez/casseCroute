@@ -42,6 +42,14 @@ use PDO;
 		public function getDate() {
 			return $this->date;
 		}
+		
+		public function getTotalPrice() {
+			$prix = 0;
+			foreach($this->produits as $p) {
+				$prix+=$p['prod']->getPrice()*$p['nb'];
+			}
+			return prix;
+		}
 	
 		public function addProduct(Produit $p, $nb = 1){
 			if(isset($this->produits[$p->getID()]))
