@@ -29,7 +29,7 @@ if(isset($_POST['validateOrder'])) {
 	}
 	catch(Exception $e){
 	//Erreur survenant si le panier est vide
-	//TODO afficher l'erreur
+	//TODO afficher éventuellement l'erreur
 	}
 }
 
