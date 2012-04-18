@@ -77,11 +77,11 @@ class ProduitImp implements Produit{
 	}
 	
 	/**
-	 * retourne tous les produits
+	 * retourne tous les produits vendables
 	 */
 	public static function getAllProducts(DBFactory $dbFac) {
 		$db = $dbFac->getDataBase();
-		$req = $db->query('SELECT * FROM sellable_item');
+		$req = $db->query('SELECT * FROM sellable_item WHERE available=1');
 		$result = $req->fetchAll();
 		$aRetourner = array();
 		for($i=0;$i<count($result);$i++) {

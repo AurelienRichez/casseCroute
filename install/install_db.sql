@@ -19,6 +19,7 @@ CREATE TABLE sellable_item(
 	id_product INT,
 	name CHAR(30),
 	description TEXT,
+	available BOOL DEFAULT 0,
 	PRIMARY KEY(id_product)
 )ENGINE = InnoDB;
 	
