@@ -34,7 +34,30 @@ class AdminProductCreator {
 		$req->execute(array('name'=>$name,'desc'=>$description,'id'=>$id));
 	}
 
-	public static function getAllProducts() {
-		
+	/**
+	 * Retourne un tableau de produits contenant tous les produits vendables, y compris
+	 * ceux qui ne sont pas disponibles.
+	 * @param PDO $db
+	 * @return multitype:ProduitImp 
+	 */
+	public static function getAllSellableProducts(PDO $db) {
+		$req = $db->query('SELECT * FROM sellable_item');
+		$result = $req->fetchAll();
+		$aRetourner = array();
+		for($i=0;$i<count($result);$i++) {
+			$aRetourner[$i] = new ProduitImp($dbFac, $result[$i]['id_product']);
+		}
+		return $aRetourner;
+	}
+	
+	
+	/**
+	 * Retourne la liste de tous les produits de la base du SIC.
+	 * @param PDO $db
+	 * @return multitype:
+	 */
+	public static function getAllArticles(PDO $db) {
+		$req = $db->query('SELECT * FROM '.NAME_DB_PRODUIT);
+		return $req->fetchAll();
 	}
 }

@@ -76,6 +76,16 @@ class ProduitImp implements Produit{
 		return $this->id = $p->getID();
 	}
 	
+	
+	/**
+	 * @return boolean true si le produit est disponible, false sinon.
+	 */
+	public function isAvailable() {
+		$req = $this->db->query('SELECT available FROM '.NAME_DB_SELLABLE_PROD.' WHERE id_product='.$this->id);
+		$result = $req->fetch();
+		return $result['available'] == 1;
+	}
+	
 	/**
 	 * retourne tous les produits vendables
 	 */
