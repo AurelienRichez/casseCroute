@@ -14,6 +14,8 @@ class DBFactoryMysql implements DBFactory {
 	private $db_name;
 	private $host;
 	private $pass;
+	
+	private static $dbFac=NULL;
 
 	function __construct($host,$db_name,$id,$pass) {
 		$this->host = $host;
@@ -46,4 +48,12 @@ class DBFactoryMysql implements DBFactory {
 	function __wakeup() {
 		$this->db = NULL;
 	}
+	
+	public static function getDBFactory() {
+		if(self::$dbFac == NULL) {
+			self::$dbFac =new DBFactoryMysql('localhost', 'test-casse-croute','root', '');
+		}
+		return self::$dbFac;
+	}
+	
 }

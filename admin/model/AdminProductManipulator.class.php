@@ -5,7 +5,7 @@
 */
 require_once '../class/Modele/Constants.php';
 
-class AdminProductCreator {
+class AdminProductManipulator {
 	//TODO à tester
 	
 	/**

@@ -29,4 +29,6 @@ interface DBFactory {
 	function __sleep();
 	
 	function __wakeup();
+	
+	public static function getDBFactory();
 }
