@@ -40,8 +40,8 @@ function writeContent(User $user) {?>
 	}
 	
 	echo '<aside>
-			<p>Casse croute est un système développé par des GSI pour
-				faciliter la commande de sandwiches à l\'EMN</p>
+			<p>Casse croute est un système développé pour un projet
+			 OSE afin de faciliter la commande de sandwiches à l\'EMN</p>
 		</aside>';
 	
 }

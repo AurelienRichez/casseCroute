@@ -110,7 +110,7 @@ class CalendrierImp implements Calendrier{
 	 * @param string $date la date inversée.
 	 */
 	public static function invDate($date) {
-		$tabDate = split('-', $date);
+		$tabDate = explode('-', $date);
 		return $tabDate[2].'-'.$tabDate[1].'-'.$tabDate[0];
 	}
 	
