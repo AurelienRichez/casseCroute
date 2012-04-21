@@ -41,7 +41,7 @@ class AdminProductManipulator {
 	 * @return multitype:ProduitImp 
 	 */
 	public static function getAllSellableProducts(PDO $db) {
-		$req = $db->query('SELECT * FROM sellable_item ORDER BY available');
+		$req = $db->query('SELECT * FROM '.NAME_DB_SELLABLE_PROD.' ORDER BY available');
 		$result = $req->fetchAll();
 		$aRetourner = array();
 		for($i=0;$i<count($result);$i++) {
@@ -60,4 +60,25 @@ class AdminProductManipulator {
 		$req = $db->query('SELECT * FROM '.NAME_DB_PRODUIT);
 		return $req->fetchAll();
 	}
+	
+	/**
+	 * Active un produit pour la vente
+	 * @param unknown_type $id
+	 * @param PDO $db
+	 */
+	public static function activateProduct($id,PDO $db) {
+		$req = $db->prepare('UPDATE '.NAME_DB_SELLABLE_PROD.' SET available=1 WHERE id_product=:id');
+		$req->execute(array('id'=>$id));
+	}
+	
+	/**
+	 * D2sactive un produit pour la vente.
+	 * @param unknown_type $id
+	 * @param PDO $db
+	 */
+	public static function desactivateProduct($id,PDO $db) {
+		$req = $db->prepare('UPDATE '.NAME_DB_SELLABLE_PROD.' SET available=0 WHERE id_product=:id');
+		$req->execute(array('id'=>$id));
+	}
+	
 }

@@ -7,7 +7,7 @@
 }
 
 
-html,body {
+html , body {
 	margin:0px;
 	padding:0px;
 	width: 100%;
@@ -26,6 +26,18 @@ img {
 	max-height: 100%;
 	max-width: 100%;
 	border:none;
+}
+
+.button{
+	display:inline-block;
+	color:white;
+	background:url("images/backgroundbanner.png");
+	border-radius:5px;
+	padding:5px;
+	text-decoration: none;
+}
+
+.button:hover {
 }
 
 /*--------------------------------[main_container]--------------------------------*/
@@ -131,6 +143,7 @@ nav li {
 	text-align: center;
 	clear:left;
 	font-size: 2em;
+	margin-top:10px;
 }
 
 nav img {
@@ -195,7 +208,7 @@ table {
 	border-collapse: collapse;
 }
 
-td,tr {
+td , tr {
 	border:solid black 1px;;
 }
 

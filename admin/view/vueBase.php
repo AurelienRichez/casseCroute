@@ -35,7 +35,7 @@ function writeFoot() {
 	?>
 	</div>
 	<footer>
-		<p><a href="admin-accueil.html">Retour à l'accueil de l'administration</a></p>
+		<p><a class="button" href="admin-accueil.html">Retour à l'accueil de l'administration</a></p>
 
 		<p>
 			<a href="#">site de l'emn</a>

@@ -35,7 +35,7 @@ function writeContent(User $user) {?>
 			echo '<tr><td>'.$p['prod']->getName().'</td><td>'.$p['nb'].'</td></tr>';
 		}
 		echo '</table>';
-		echo '<a href="#">Refaire cette commande pour le '.date('d/m/Y',strtotime($user->getCalendar()->nextValidDay())).'</a>';
+		echo '<a class="button" href="#">Refaire cette commande pour le '.date('d/m/Y',strtotime($user->getCalendar()->nextValidDay())).'</a>';
 		echo '</div>';
 	}
 	

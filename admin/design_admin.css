@@ -1,5 +1,11 @@
 
+#main_container,footer {
+	max-width:none;
+	width:80%;
+}
 
+
+/*--------------------------------[Liste des produits]--------------------------------*/
 .cadre_produit_actif , .cadre_produit_inactif {
 	border:solid black 1px;
 	text-align: left;
@@ -20,9 +26,28 @@
 	background: rgb(200,255,200);
 }
 
+.cadre_produit_inactif {
+	background: rgb(255,200,200);
+}
+
+
+
 .liste_prods {
 	list-style-type: none;
 	list-style-position: outside;
 	padding:0px;
 	margin:0px;
+}
+
+.liste_prods  + * {
+	clear:both;
+}
+
+/*--------------------------------[Accueil]--------------------------------*/
+
+nav li {
+	text-align: center;
+	clear:left;
+	font-size: 1.5em;
+	margin-top:10px;
 }

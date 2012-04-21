@@ -31,7 +31,7 @@ function writeContent(UserImp $user) {
 </div>
 	<?php 
 	}
-	echo '<p><a href="page-accueil.html">Retour à l\'accueil</a></p>';
+	echo '<p><a class="button" href="page-accueil.html">Retour à l\'accueil</a></p>';
 }
 
 function writeAddedProduct(Produit $prod, $nb) {

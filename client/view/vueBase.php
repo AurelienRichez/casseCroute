@@ -33,7 +33,7 @@ function writeHead(User $user) {
 			<h1>Casse croute</h1>
 		</div>
 		<div id="panier">
-		<h2><a href="page-panier.html">Panier</a></h2><?php 
+		<h2><a class="button" href="page-panier.html">Panier</a></h2><?php 
 		$nbProduits = $user->getBasket()->getNumberOfProducts();
 		if($nbProduits > 1 ) {
 			echo '<p>',$nbProduits,' produits pour ',$user->getBasket()->getTotalPrice(),' €</p>';

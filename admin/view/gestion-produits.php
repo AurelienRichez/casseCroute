@@ -18,12 +18,12 @@ foreach($products as $p) {
 	<p><input type="hidden" name="id" value="<?php echo $id?>" />
 	<?php 
 	if($activated) {?>
-		Ce produit est disponible à la vente.
+		Ce produit est disponible à la vente.<br />
 		<input type="hidden" name="desactivate" />
 		<input type="submit" value="Désactiver ce produit" />
 	<?php }
 	else {?>
-		Ce produit n'est pas disponible à la vente.
+		Ce produit n'est pas disponible à la vente.<br />
 		<input type="hidden" name="activate" />
 		<input type="submit" value="Activer ce produit" />
 	<?php }
@@ -40,4 +40,6 @@ foreach($products as $p) {
 	<?php 
 	}
 	echo '</ul>';
+	
+	echo '<p><a class="button" href="admin-ajout-produit.html">Ajouter un nouveau produit</a></p>';
 }
