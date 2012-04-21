@@ -20,6 +20,5 @@ function writeContent(Calendrier $cal) {
 		<input type="submit" value="Valider" />
 	</form>
 	
-	<a href="admin-gestion-calendrier.html">Gestion du calendrier</a>
 	<?php 
 }

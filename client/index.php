@@ -13,9 +13,9 @@
 //TODO à retirer lors de la mise en production, juste pour créer les variables 
 //nécessaires
 
-$_SERVER['HTTP_SHIB_GIVENNAME'] = 'Titi';
-$_SERVER['HTTP_SHIB_SURNAME'] = 'Foo';
-$_SERVER['REMOTE_USER'] = 'toto1';
+$_SERVER['HTTP_SHIB_GIVENNAME'] = 'Aurélien';
+$_SERVER['HTTP_SHIB_SURNAME'] = 'Richez';
+$_SERVER['REMOTE_USER'] = 'ariche10';
 //[/TEST]
 require_once 'class/loadclasses.php';
 

@@ -1,5 +1,5 @@
 <?php
-//TODO à faire
+//TODO ajouter la suppression de commandes etc
 
 require_once 'view/commandes.php';
 require_once 'view/vueBase.php';

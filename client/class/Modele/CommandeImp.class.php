@@ -58,14 +58,14 @@ class CommandeImp implements Commande{
 	}
 	
 	
-	public function getNameUser() {//TODO à tester
+	public function getNameUser() {
 		$req = $this->db->query('SELECT name_user FROM orders WHERE id_order='.$this->getId());
 		$result = $req->fetchAll();
 		return $result[0]['name_user'];
 	}
 		
 			
-	public function getSurnameUser(){//TODO à tester
+	public function getSurnameUser(){
 		$req = $this->db->query('SELECT surname_user FROM orders WHERE id_order='.$this->getId());
 		$result = $req->fetchAll();
 		return $result[0]['surname_user'];
