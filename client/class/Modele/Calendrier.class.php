@@ -56,6 +56,11 @@ interface Calendrier{
 	 */
 	public function nextValidDay($date = NULL);
 	
+	/**
+	 * Retourne le dernier jour valide du calendrier.
+	 */
+	public function lastValidDay();
+	
 	public function __sleep();
 	
 	public function __wakeup();

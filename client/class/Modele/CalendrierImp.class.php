@@ -30,7 +30,7 @@ class CalendrierImp implements Calendrier{
 			$result = $this->db->query('SELECT COUNT(*) AS nb FROM '.NAME_DB_CALENDRIER.' WHERE day="'.$date.'"');
 			$result = $result->fetchAll();
 			return $result[0]['nb']==1;
-				
+
 		}
 	}
 
@@ -40,7 +40,7 @@ class CalendrierImp implements Calendrier{
 			$this->checkDateFormat($date);
 			$this->db->exec('INSERT INTO `'.NAME_DB_CALENDRIER.'` VALUES("'.$date.'")');
 		}
-		
+
 	}
 
 	public function disablePeriod($start,$end){
@@ -69,31 +69,31 @@ class CalendrierImp implements Calendrier{
 	}
 
 	private function checkDateFormat($date){
-		
+
 		$valeurs = explode('-',$date);
-		
+
 		if(!(count($valeurs)==3 && checkdate($valeurs[1], $valeurs[2], $valeurs[0]))){
 			throw new Exception('La date entrée n\'est pas valide : '.$date);
 		}
 	}
-	
+
 	public function nextValidDay($date=NULL) {
-		
+
 		//paramètres par défauts :
 		if($date==NULL)
 			$date = date('Y-m-d');
 		$this->checkDateFormat($date);
-		
-		
+
+
 		//vérification de l'heure :
 		if($date==date('Y-m-d') && date('H')>=HEURE_LIMITE) {
 			return $this->nextValidDay(date('Y-m-d',time()+86400));
 		}
-		
+
 			
 		$timestamp  = strtotime($date);
-		
-		
+
+
 		$result = $this->db->query('SELECT * FROM '.NAME_DB_CALENDRIER.' WHERE day >= "'.$date.'"');
 		$result = $result->fetchAll();
 		if (count($result)==0) {
@@ -103,7 +103,16 @@ class CalendrierImp implements Calendrier{
 			return $result[0]['day'];
 		}
 	}
-	
+
+	public function lastValidDay() {
+		$req = $this->db->query('SELECT * FROM '.NAME_DB_CALENDRIER.' ORDER BY day DESC LIMIT 0,1');
+		$result = $req->fetchAll();
+		if(count($result)==1)
+			return $result[0]['day'];
+		else
+			return NULL;
+	}
+
 	/**
 	 * inverse le sens de la date. Par exemple retourne 11-10-2012 si on
 	 * entre 2012-10-11. Sert pour les conversions au format us-français
@@ -113,12 +122,12 @@ class CalendrierImp implements Calendrier{
 		$tabDate = explode('-', $date);
 		return $tabDate[2].'-'.$tabDate[1].'-'.$tabDate[0];
 	}
-	
-	
+
+
 	public function __sleep() {
 		return array('dbFactory');
 	}
-	
+
 	public function __wakeup(){
 		$this->db = $this->dbFactory->getDatabase();
 	}
