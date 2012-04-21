@@ -3,7 +3,7 @@
 * ProductCreator.class.php
 * created 18 avr. 2012
 */
-require_once '../class/Modele/Constants.php';
+require_once '../client/class/Modele/Constants.php';
 
 class AdminProductManipulator {
 	//TODO à tester
@@ -41,11 +41,11 @@ class AdminProductManipulator {
 	 * @return multitype:ProduitImp 
 	 */
 	public static function getAllSellableProducts(PDO $db) {
-		$req = $db->query('SELECT * FROM sellable_item');
+		$req = $db->query('SELECT * FROM sellable_item ORDER BY available');
 		$result = $req->fetchAll();
 		$aRetourner = array();
 		for($i=0;$i<count($result);$i++) {
-			$aRetourner[$i] = new ProduitImp($dbFac, $result[$i]['id_product']);
+			$aRetourner[$i] = new ProduitImp(DBFactoryMysql::getDBFactory(), $result[$i]['id_product']);
 		}
 		return $aRetourner;
 	}

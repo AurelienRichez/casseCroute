@@ -49,6 +49,9 @@ class DBFactoryMysql implements DBFactory {
 		$this->db = NULL;
 	}
 	
+	/**
+	 * @return DBFactorySqlite la fabrique de bdd
+	 */
 	public static function getDBFactory() {
 		if(self::$dbFac == NULL) {
 			self::$dbFac =new DBFactoryMysql('localhost', 'test-casse-croute','root', '');

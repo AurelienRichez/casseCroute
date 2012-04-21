@@ -15,6 +15,7 @@ function writeContent(UserImp $user) {
 		$id = $p->getID();
 	?>
 <div class="cadre_produit">
+	<h2><?php echo $name; ?></h2>
 	<form method="post">
 	<p>
 		<input type="hidden" name="id" value="<?php echo $id?>" />

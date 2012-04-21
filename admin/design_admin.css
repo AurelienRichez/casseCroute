@@ -1,0 +1,28 @@
+
+
+.cadre_produit_actif , .cadre_produit_inactif {
+	border:solid black 1px;
+	text-align: left;
+	clear:both;
+	padding:10px;
+	margin:20px;
+}
+
+.cadre_produit_actif img , .cadre_produit_inactif  img {
+	float:left;
+}
+
+.cadre_produit_actif form , .cadre_produit_inactif  form {
+	float:right;
+}
+
+.cadre_produit_actif {
+	background: rgb(200,255,200);
+}
+
+.liste_prods {
+	list-style-type: none;
+	list-style-position: outside;
+	padding:0px;
+	margin:0px;
+}

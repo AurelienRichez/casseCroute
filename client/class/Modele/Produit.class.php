@@ -25,8 +25,15 @@
 
 		/**
 		* retourne la description du produit
+		* @return string description
 		*/
 		public function getDescription();
+		
+		/**
+		 * Retourne true si le produit est disponible à la vente
+		 * @return boolean 
+		 */
+		public function isAvailable();
 
 		/**
 		* egalite
