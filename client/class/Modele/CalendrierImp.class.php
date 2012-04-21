@@ -109,7 +109,7 @@ class CalendrierImp implements Calendrier{
 	 * @param string $date
 	 */
 	public static function frenchDate($date) {
-		return date('d/m/Y',strtotime($date));
+		return date('d-m-Y',strtotime($date));
 	}
 	
 	public function __sleep() {
