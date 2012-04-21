@@ -13,4 +13,12 @@ if(isset($_GET['date_order'])) {
 		writeOrders($orders, $_GET['date_order']);
 		writeFoot();
 	}
+	else {
+		writeHead();
+		writeNonValidDay($_GET['date_order']);
+		writeFoot();
+	}
+}
+else {
+	header('location:admin-accueil.html');
 }

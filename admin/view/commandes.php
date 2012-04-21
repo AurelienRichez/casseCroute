@@ -28,3 +28,13 @@ function writeOrders($orders,$dateFR) {
 	
 	<?php 
 }
+
+/**
+ * ecrit un message d'erreur. A appeler si la date demandée n'est pas valide.
+ */
+function writeNonValidDay($dateFR) {
+	echo '<p class="error">La date '.$dateFR.' n\'est pas répértoriée comme étant 
+	une journée où des produits seront en vente.<p>
+	
+	<p><a href="admin-accueil.html">Retour à l\'accueil de l\'administration</a></p>';
+}
