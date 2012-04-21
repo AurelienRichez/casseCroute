@@ -109,8 +109,10 @@ class CalendrierImp implements Calendrier{
 	 * @param string $date
 	 */
 	public static function frenchDate($date) {
-		return date('d-m-Y',strtotime($date));
+		$tabDate = split('-', $date);
+		return $tabDate[2].'-'.$tabDate[1].'-'.$tabDate[0];
 	}
+	
 	
 	public function __sleep() {
 		return array('dbFactory');

@@ -57,20 +57,25 @@ class CommandeImp implements Commande{
 		return $aRetourner;
 	}
 	
-	//TODO implémenter les fonctions restante, pas très urgent
 	
-	public function getNameUser() {//TODO à faire
-		$req = $this->db->query('SELECT name_user FROM orders WHERE id_order=');
+	public function getNameUser() {//TODO à tester
+		$req = $this->db->query('SELECT name_user FROM orders WHERE id_order='.$this->getId());
+		$result = $req->fetchAll();
+		return $result[0]['name_user'];
 	}
 		
 			
-	public function getSurnameUser(){
-		//TODO à faire
+	public function getSurnameUser(){//TODO à tester
+		$req = $this->db->query('SELECT surname_user FROM orders WHERE id_order='.$this->getId());
+		$result = $req->fetchAll();
+		return $result[0]['surname_user'];
 	}
 		
 		
-	public function getIdUser(){ 
-		//TODO à faire
+	public function getIdUser(){//TODO à tester
+		$req = $this->db->query('SELECT id_user FROM orders WHERE id_order='.$this->getId());
+		$result = $req->fetchAll();
+		return $result[0]['id_user'];
 	}
 	
 	public function __sleep() {

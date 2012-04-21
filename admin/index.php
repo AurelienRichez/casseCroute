@@ -11,7 +11,7 @@ if(isset($_GET['page'])) {
 		}
 		else {
 			header('HTTP/1.0 404 Not Found');
-			echo 'Page inexistante';//TODO faire une page mieux en cas d'erreur 404, avec à minima un lien vers l'accueil
+			echo 'Page inexistante <br /><a href="page-accueil.php">Retour à l\'accueil</a>';//TODO faire une page mieux en cas d'erreur 404, avec à minima un lien vers l'accueil
 			exit;
 		}
 	}
