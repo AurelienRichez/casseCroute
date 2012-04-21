@@ -105,10 +105,11 @@ class CalendrierImp implements Calendrier{
 	}
 	
 	/**
-	 * retourne la date au format JJ/MM/AAAA
-	 * @param string $date
+	 * inverse le sens de la date. Par exemple retourne 11-10-2012 si on
+	 * entre 2012-10-11. Sert pour les conversions au format us-français
+	 * @param string $date la date inversée.
 	 */
-	public static function frenchDate($date) {
+	public static function invDate($date) {
 		$tabDate = split('-', $date);
 		return $tabDate[2].'-'.$tabDate[1].'-'.$tabDate[0];
 	}

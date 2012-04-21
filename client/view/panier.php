@@ -14,7 +14,7 @@ function writeContent(User $user) {
 	
 	
 	echo '<h1>Panier</h1>';
-	echo '<p>Commande pour le '.CalendrierImp::frenchDate($basket->getDate()).'</p>';
+	echo '<p>Commande pour le '.CalendrierImp::invDate($basket->getDate()).'</p>';
 	
 	echo '<table>';
 	echo '<tr><td>produit</td><td>nombre</td><td></td></tr>';
