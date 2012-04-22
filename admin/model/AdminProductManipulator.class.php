@@ -17,9 +17,9 @@ class AdminProductManipulator {
 	 * @param unknown_type $avalaible
 	 * @param unknown_type $image
 	 */
-	public static function createProduct(PDO $db, $id, $name, $description, $avalaible, $image = NULL) {
-		$req = $db->prepare('INSERT INTO '.NAME_DB_SELLABLE_PROD.'(id_product, name, description, available) VALUES(:id,:name,:desc,:avalaible');
-		$req->execute(array('id'=>$id,'name'=>$name,'desc'=>$desc,'available'=>$available));
+	public static function createProduct(PDO $db, $id, $name, $description, $available=false, $image = NULL) {
+		$req = $db->prepare('INSERT INTO '.NAME_DB_SELLABLE_PROD.'(id_product, name, description, available) VALUES(:id,:name,:desc,:available)');
+		$req->execute(array('id'=>$id,'name'=>$name,'desc'=>$description,'available'=>$available ? 1 : 0));
 	} 
 	
 	/**
@@ -30,8 +30,8 @@ class AdminProductManipulator {
 	 * @param unknown_type $description
 	 */
 	public static function editProduct(PDO $db, $id, $name, $description) {
-		$req = $db->prepare('UPDATE '.NAME_DB_SELLABLE_PROD.' SET name=:name, description=:desc WHERE id_product=:id');
-		$req->execute(array('name'=>$name,'desc'=>$description,'id'=>$id));
+		$req = $db->prepare('UPDATE '.NAME_DB_SELLABLE_PROD.' SET name=:name, description=:desc WHERE id_product=:id') or die(var_dump($db->errorInfo()));
+		$req->execute(array('name'=>$name,'desc'=>$description,'id'=>$id)) or die(var_dump($req->errorInfo()));
 	}
 
 	/**

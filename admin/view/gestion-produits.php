@@ -11,11 +11,12 @@ foreach($products as $p) {
 		$id = $p->getID();
 		$activated = $p->isAvailable();
 	?>
-	<li>
-	<div class="cadre_produit_<?php if($activated) echo 'actif'; else echo 'inactif'; ?>">
-	<h2><?php echo $name; ?></h2>
+<li>
+<div class="cadre_produit_<?php if($activated) echo 'actif'; else echo 'inactif'; ?>">
+	
 	<form method="post">
-	<p><input type="hidden" name="id" value="<?php echo $id?>" />
+	<p>
+	<input type="hidden" name="id" value="<?php echo $id?>" />
 	<?php 
 	if($activated) {?>
 		Ce produit est disponible à la vente.<br />
@@ -30,11 +31,16 @@ foreach($products as $p) {
 	?>
 	</p>
 	</form>
+	<form method="post" action="admin-edition-produit.html">
+		<input type="hidden" name="id" value="<?php echo $id;?>" />
+		<input type="submit" value="editer ce produit" />
+	</form>
+	<h2><?php echo $name; ?></h2>
 	<p>
-	<?php if($p->getImage()!=NULL) {echo '<img src="images/imgprod/'.$image.'.jpg" alt="image '.$name.'" />';} ?>
+	<?php if($image!=NULL) {echo '<img src="images/imgprod/'.$image.'.jpg" alt="image '.$name.'" />';} ?>
 	<?php echo $description;?>
 	</p>
-	
+	<div class=".clear"></div>
 </div>
 </li>
 	<?php 

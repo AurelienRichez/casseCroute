@@ -20,6 +20,8 @@
 
 .cadre_produit_actif form , .cadre_produit_inactif  form {
 	float:right;
+	clear:both;
+	text-align: right;
 }
 
 .cadre_produit_actif {
@@ -28,6 +30,10 @@
 
 .cadre_produit_inactif {
 	background: rgb(255,200,200);
+}
+
+.clear {
+	clear:both;
 }
 
 

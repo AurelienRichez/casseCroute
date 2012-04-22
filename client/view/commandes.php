@@ -28,12 +28,12 @@ function writeContent(User $user) {
 			echo '<td rowspan="'.count($products).'">'.date('d/m/Y',strtotime($o->getDate())).'</td>';
 			echo '<td>'.$products[0]['prod']->getName().'</td>';
 			echo '<td>'.$products[0]['nb'].'</td>';
-			echo '<td rowspan="'.count($products).'"><a href="page-confirmation-suppression.html?id='.$o->getId().'">supprimer</a></td>';
+			echo '<td rowspan="'.count($products).'"><a class="button" href="page-confirmation-suppression.html?id='.$o->getId().'">supprimer</a></td>';
 			echo '</tr>';
 			
 			for($i=1;$i<count($products);$i++) {
 				echo '<tr>';
-				echo '<td>'.$products[$i]['prod']->getName().'<td>';
+				echo '<td>'.$products[$i]['prod']->getName().'</td>';
 				echo '<td>'.$products[$i]['nb'].'</td>';
 				echo '</tr>';
 			}
@@ -44,5 +44,5 @@ function writeContent(User $user) {
 		
 		<?php 
 	}
-	echo '<p><a href="page-accueil.html">Retour à la page d\'accueil</a></p>';
+	echo '<p><a class="button" href="page-accueil.html">Retour à la page d\'accueil</a></p>';
 }
