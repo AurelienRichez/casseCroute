@@ -123,6 +123,33 @@ class CalendrierImp implements Calendrier{
 		return $tabDate[2].'-'.$tabDate[1].'-'.$tabDate[0];
 	}
 
+	public function getValidDayForMonth($month,$year) { //TODO non testé
+		if($month < 10) {
+			$month = '0'.$month;
+		}
+		$req= $this->db->query('SELECT * FROM '.NAME_DB_CALENDRIER.' WHERE day < "'.$year.'-'.($month+1).'-01" AND day >= "'.$year.'-'.$month.'-01"');
+		$result = $req->fetchAll();
+		$lastDay = date('j',mktime(0, 0, 0,$month+1, 0, $year));
+		$validDays = array();
+
+		$j=0;
+			
+		for($i=1 ; $i <= $lastDay ; $i++) {
+			$day = $i;
+			if($day <10 ) {
+				$day = '0'.$day;
+			}
+			if($j<count($result) && $result[$j]['day'] == $year.'-'.$month.'-'.$day) {
+				$validDays[$i] = true;
+				$j++;
+			}
+			else {
+				$validDays[$i] = false;
+			}
+		}
+
+		return $validDays;
+	}
 
 	public function __sleep() {
 		return array('dbFactory');

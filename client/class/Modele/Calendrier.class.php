@@ -61,6 +61,12 @@ interface Calendrier{
 	 */
 	public function lastValidDay();
 	
+	/**
+	 * Retourne un tableau de booléen correspondant aux jours valides dans le mois
+	 * @param integer $month
+	 */
+	public function getValidDayForMonth($month,$year);
+	
 	public function __sleep();
 	
 	public function __wakeup();
