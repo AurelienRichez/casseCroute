@@ -1,0 +1,21 @@
+
+----------------------
+10-04-2012,12:48:42:
+	Le panier est vide !
+	exception lancée par :C:\wamp\www\casseCroute\class\Modele\PanierImp.class.php
+	 ligne 71
+	 trace : 
+#0 C:\wamp\www\casseCroute\class\Modele\UserImp.class.php(95): modele\PanierImp->validateOrder('Titi', 'Foo', 'toto1')
+#1 C:\wamp\www\casseCroute\controller\panier.php(27): modele\UserImp->validateOrder()
+#2 C:\wamp\www\casseCroute\index.php(39): include_once('C:\wamp\www\cas...')
+#3 {main}
+----------------------
+10-04-2012,12:50:04:
+	Le panier est vide !
+	exception lancée par :C:\wamp\www\casseCroute\class\Modele\PanierImp.class.php
+	 ligne 71
+	 trace : 
+#0 C:\wamp\www\casseCroute\class\Modele\UserImp.class.php(95): modele\PanierImp->validateOrder('Titi', 'Foo', 'toto1')
+#1 C:\wamp\www\casseCroute\controller\panier.php(31): modele\UserImp->validateOrder()
+#2 C:\wamp\www\casseCroute\index.php(39): include_once('C:\wamp\www\cas...')
+#3 {main}

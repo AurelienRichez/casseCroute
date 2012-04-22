@@ -13,6 +13,12 @@ function writeHead() {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="design_base.css" />
 <link rel="stylesheet" href="admin/design_admin.css" />
+<script src="jquery/jquery-1.7.2.min.js"></script>
+<script src="jquery/jquery.ui.core.js"></script>
+<script src="jquery/jquery.ui.datepicker.min.js"></script>
+<script src="jquery/jquery.ui.datepicker-fr.js"></script>
+<link rel="stylesheet" href="jquery/themes/base/jquery.ui.all.css">
+
 <title>Casse croute - Administration</title>
 </head>
 <body>

@@ -72,6 +72,20 @@ function getMonth($month) {
 }
 
 function writeCalendar($startMonth,$year, Calendrier $cal) {
+	?>
+	
+	<script>
+		//<!--
+		$(function() {
+			$.datepicker.setDefaults({ beforeShowDay: $.datepicker.noWeekends });
+			$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
+			$(".datepicker").datepicker({ dateFormat: "dd-mm-yy" });
+		});
+		//-->
+	</script>
+	<?php 
+	
+	
 	$month = $startMonth;
 	for($i = 0 ; $i<6 ; $i++) {
 		if($month==13) {
@@ -82,6 +96,25 @@ function writeCalendar($startMonth,$year, Calendrier $cal) {
 		writeMonth($year, $startMonth+$i, $cal->getValidDayForMonth($month,$year),$startDay);
 		$month++;
 	}
+	
+	?>
+	
+	<form method="post" action="admin-gestion-calendrier.html">
+		<h2>Ajouter une plage de date au calendrier :</h2>
+		<label for="start_enable">date de début</label><br /><input placeholder="JJ-MM-AAAA" class="datepicker" name="start" id="start_enable" type="text" /><br />
+		<label for="end_enable">date de fin</label><br /><input placeholder="JJ-MM-AAAA" class="datepicker" name="end" id="end_enable" type="text" /><br />
+		<input type="hidden" name="activate" />
+		<input type="submit" value="ajouter la plage de date" />
+	</form>
+	<form method="post" action="admin-gestion-calendrier.html">
+		<h2>Désactiver une plage de date du calendrier :</h2>
+		<label for="start_disable">date de début</label><br /><input placeholder="JJ-MM-AAAA" class="datepicker" name="start" id="start_disable" type="text" /><br />
+		<label for="end_disable">date de fin</label><br /><input placeholder="JJ-MM-AAAA" class="datepicker" name="end" id="end_disable" type="text" /><br />
+		<input type="hidden" name="desactivate" />
+		<input type="submit" value="supprimer la plage de date" />
+	</form>
+	
+	<?php 
 }
 
 
