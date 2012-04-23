@@ -22,7 +22,7 @@ require_once 'class/loadclasses.php';
 session_start();
 try{
 	if(!isset($_SESSION['user'])) {
-		$dbFac = new DBFactoryMysql('localhost', 'test-casse-croute', 'root', '');//TODO à changer lors de la mise en production
+		$dbFac = DBFactoryMysql::getDBFactory();//TODO à changer lors de la mise en production
 		$user = new UserImp($dbFac, $_SERVER['HTTP_SHIB_GIVENNAME'], $_SERVER['HTTP_SHIB_SURNAME'], $_SERVER['REMOTE_USER']);
 			
 		$_SESSION['user'] = $user;
